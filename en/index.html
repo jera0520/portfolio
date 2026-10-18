@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kim Jinhyeon — Video Editor, Andong, South Korea</title>
+<meta name="description" content="Portfolio of Kim Jinhyeon, a remote video editor in Andong, South Korea. Reels, Shorts and TikTok edits, long recordings turned into episodes and clips, and AI video.">
+<meta property="og:title" content="Kim Jinhyeon — Raw footage in, finished videos out">
+<meta property="og:description" content="Reels, Shorts, YouTube episodes, podcast clips and AI video. Remote video editor based in Andong, South Korea.">
+<meta property="og:image" content="https://jera0520.github.io/portfolio/i/og.jpg">
+<meta property="og:url" content="https://jera0520.github.io/portfolio/en/">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ko" href="https://jera0520.github.io/portfolio/">
+<link rel="alternate" hreflang="en" href="https://jera0520.github.io/portfolio/en/">
+<meta name="theme-color" content="#F1EDE4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-50 -50 100 100%27%3E%3Cpath d=%27M0-46V46M-46 0H46M-32.5-32.5 32.5 32.5M-32.5 32.5 32.5-32.5%27 stroke=%27%23DD4527%27 stroke-width=%2716%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --paper:#F1EDE4;--paper2:#E8E3D7;--ink:#141312;--mute:#7A756C;--rule:rgba(20,19,18,.16);
+  --accent:#DD4527;--film:#0E0E0D;--film2:#1A1918;--cream:#EEE9DE;
+  --serif:"Hahmlet","Noto Serif KR",serif;--sans:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;--latin:"Instrument Serif",serif;
+  --pad:clamp(16px,3.2vw,44px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.09;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mute)}
+
+/* 위 막대 */
+.bar{position:sticky;top:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);gap:0 clamp(10px,2vw,28px);padding:14px var(--pad) 0;background:linear-gradient(var(--paper) 72%,transparent)}
+.bar>*{display:block;padding-bottom:9px;border-bottom:1px solid var(--rule);font-size:12px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar b{font-weight:700;letter-spacing:-.01em}
+.bar .t{font-family:var(--mono);font-size:11.5px}
+.bar .on .ast{width:10px;height:10px;margin-right:7px;vertical-align:-1px;color:var(--accent);stroke-width:15;animation:spin 7s linear infinite}
+.bar a.go{text-align:right}
+.bar a.go:hover{color:var(--accent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* 첫 화면 */
+.hero{min-height:calc(100svh - 48px);display:grid;grid-template-rows:auto 1fr auto;padding:clamp(28px,6vh,72px) var(--pad) 0}
+.hero .cap{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.hero .cap .lbl b{color:var(--ink);font-weight:500}
+.state{align-self:center;max-width:1500px;font-family:var(--serif);font-weight:250;font-size:clamp(29px,4.45vw,84px);line-height:1.1;letter-spacing:-.025em;margin:clamp(22px,4vh,52px) 0}
+.state strong{font-family:var(--sans);font-weight:900;letter-spacing:-.05em}
+.state em{font-style:normal;color:var(--accent)}
+.ast{display:inline-block;flex:none;fill:none;stroke:currentColor;stroke-width:10;overflow:visible}
+.state .ast{width:.66em;height:.66em;margin-right:.2em;vertical-align:-.03em;color:var(--accent);stroke-width:13;animation:spin 16s linear infinite}
+.state .lt{font-family:var(--latin);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.svc3{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,28px);font-size:13px;line-height:1.5;color:var(--mute);margin-bottom:clamp(18px,3vh,30px)}
+.svc3 span b{display:block;color:var(--ink);font-weight:700;font-size:13px}
+.name{position:relative;display:flex;align-items:flex-end;justify-content:flex-start;gap:.07em;font-family:var(--serif);font-weight:800;font-size:clamp(96px,20.5vw,390px);line-height:.78;letter-spacing:-.065em;margin:0 calc(var(--pad) * -.15);padding-bottom:.11em;white-space:nowrap}
+.name .clip{flex:1 1 auto;min-width:.7em;height:.6em;align-self:center;overflow:hidden;transform:translateY(-.02em)}
+.name .clip video{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05)}
+.name .s{display:inline-block}
+.foot{display:flex;justify-content:space-between;padding:12px 0 18px;border-top:1px solid var(--rule);margin-top:6px}
+
+/* 띠 */
+.marq{overflow:hidden;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2)}
+.marq .tr{display:flex;width:max-content;animation:mq 46s linear infinite}
+.marq span{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.6vw,34px);padding:12px 0;white-space:nowrap}
+.marq span i{font-style:normal;color:var(--accent);margin:0 .8em}
+.marq .ast{width:.52em;height:.52em;vertical-align:.02em;stroke-width:8}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* 영상 (어두운 구간) */
+.film{background:var(--film);color:var(--cream);padding:clamp(48px,9vh,110px) 0 clamp(40px,7vh,90px)}
+.film .lbl{color:#8d887f}
+.shd{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:0 var(--pad);margin-bottom:clamp(22px,4vh,40px)}
+.shd h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,7vw,120px);line-height:.95;letter-spacing:-.04em}
+.shd h2 b{font-family:var(--sans);font-weight:900;letter-spacing:-.06em}
+.shd p{max-width:34ch;font-size:13.5px;color:#a9a399;text-align:right}
+.wide{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:clamp(8px,1.2vw,16px);padding:0 var(--pad);margin-bottom:clamp(30px,5vh,56px)}
+.wide figure{position:relative;cursor:pointer}
+.wide .vb{aspect-ratio:16/9;overflow:hidden;background:var(--film2)}
+.wide video{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.wide figure:hover video{transform:scale(1.03)}
+.cr{display:flex;flex-wrap:wrap;gap:2px 12px;padding-top:10px;font-size:12.5px;color:#a9a399;border-top:1px solid #2b2a28;margin-top:10px}
+.cr b{width:100%;color:var(--cream);font-weight:600;font-size:14px}
+.reels{display:flex;gap:clamp(8px,1.2vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 6px;scrollbar-width:none}
+.reels::-webkit-scrollbar{display:none}
+.reel{flex:0 0 clamp(178px,17.5vw,268px);scroll-snap-align:start;cursor:pointer}
+.reel .vb{position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--film2)}
+.reel video{width:100%;height:100%;object-fit:cover}
+.reel .snd{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:#fff;mix-blend-mode:difference}
+.hint{padding:14px var(--pad) 0;display:flex;justify-content:space-between}
+
+/* 작업 목록 */
+.idx{padding:clamp(56px,10vh,120px) var(--pad) clamp(40px,7vh,80px)}
+.idx .shd{padding:0}
+.idx .shd p{color:var(--mute)}
+.ig{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:start}
+.th,.row{display:grid;grid-template-columns:3.2em minmax(0,1fr) minmax(0,.72fr) 3.6em;gap:14px;align-items:baseline}
+.th{padding:0 0 8px;border-bottom:1px solid var(--ink)}
+.row{width:100%;padding:14px 0 13px;border-bottom:1px solid var(--rule);transition:padding .35s cubic-bezier(.2,.7,.2,1),color .2s}
+.row .no,.row .yr{font-family:var(--mono);font-size:11.5px;color:var(--mute)}
+.row .ti{font-size:clamp(16px,1.55vw,21px);font-weight:600;letter-spacing:-.02em;line-height:1.35}
+.row .ty{font-size:13px;color:var(--mute);line-height:1.4}
+.row .pv{font-family:var(--mono);font-size:10.5px;color:var(--accent);margin-left:6px;letter-spacing:.03em}
+.row:hover,.row.cur{padding-left:10px}
+.row:hover .ti,.row.cur .ti{color:var(--accent)}
+.row.priv .ti::after{content:"NOT PUBLIC";font-family:var(--mono);font-size:10px;font-weight:400;color:var(--mute);letter-spacing:.03em;margin-left:10px;vertical-align:2px}
+.pvw{position:sticky;top:76px}
+.pvw .box{position:relative;aspect-ratio:4/5;background:var(--paper2);overflow:hidden}
+.pvw .box>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s}
+.pvw .box>.show{opacity:1}
+.pvw .box .txt{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,2.4vw,32px);background:var(--film);color:var(--cream);object-fit:initial}
+.pvw .box .txt big{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.4vw,52px);line-height:1.08;letter-spacing:-.03em;margin-bottom:14px}
+.pvw .box .txt big b{font-family:var(--sans);font-weight:900;letter-spacing:-.05em}
+.pvw .box .txt small{font-size:13px;color:#a9a399;line-height:1.55}
+.pvw .meta{display:flex;justify-content:space-between;gap:12px;padding-top:10px;font-size:13px}
+.pvw .meta b{font-weight:600}
+.note{margin-top:18px;font-size:12.5px;color:var(--mute)}
+
+/* 숫자 */
+.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,2vw,30px);padding:0 var(--pad) clamp(56px,10vh,120px)}
+.nums div{border-top:1px solid var(--ink);padding-top:14px}
+.nums big{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(44px,5.4vw,92px);line-height:.95;letter-spacing:-.05em;margin-bottom:14px}
+.nums big sup{font-size:.36em;letter-spacing:0;vertical-align:.95em;margin-left:.08em;font-weight:400}
+.nums big .ar{font-family:var(--latin);font-style:italic;color:var(--accent);margin:0 .06em}
+.nums p{font-size:13px;line-height:1.5;color:var(--mute)}
+.nums p b{color:var(--ink);font-weight:600}
+
+/* 하는 일 */
+.svc{padding:0 var(--pad) clamp(56px,10vh,120px)}
+.svc .r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,.9fr);gap:clamp(14px,3vw,48px);align-items:baseline;padding:clamp(18px,3vh,30px) 0;border-top:1px solid var(--rule)}
+.svc .r:last-child{border-bottom:1px solid var(--rule)}
+.svc h3{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.6vw,76px);line-height:1;letter-spacing:-.045em}
+.svc h3 b{font-family:var(--sans);font-weight:900;letter-spacing:-.06em}
+.svc ul{list-style:none;font-size:clamp(15px,1.3vw,18px);line-height:1.75}
+.svc .r p{font-size:13px;color:var(--mute);line-height:1.6}
+
+/* 교육 */
+.teach{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);padding:clamp(56px,10vh,110px) var(--pad);background:var(--paper2);border-top:1px solid var(--rule)}
+.teach h2{font-family:var(--serif);font-weight:300;font-size:clamp(36px,5vw,84px);line-height:1;letter-spacing:-.045em}
+.teach h2 b{font-family:var(--sans);font-weight:900;letter-spacing:-.06em}
+.teach h2 em{font-style:normal;color:var(--accent)}
+.teach p{font-size:clamp(16px,1.35vw,19px);line-height:1.75;margin-bottom:18px}
+.teach dl{display:grid;grid-template-columns:7.5em 1fr;gap:10px 16px;font-size:14px;border-top:1px solid var(--rule);padding-top:16px}
+.teach dt{font-weight:700}
+.teach dd{color:var(--mute)}
+.ul{border-bottom:1px solid currentColor;padding-bottom:1px}
+.ul:hover{color:var(--accent)}
+
+/* 연락 */
+.contact{padding:clamp(70px,13vh,150px) var(--pad) 26px;background:var(--film);color:var(--cream)}
+.contact h2{font-family:var(--serif);font-weight:800;font-size:clamp(68px,15.5vw,270px);line-height:.86;letter-spacing:-.065em;margin-bottom:clamp(36px,7vh,80px)}
+.contact h2 em{font-style:normal;color:var(--accent)}
+.cl{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(14px,2vw,28px)}
+.cl a{display:block;padding:14px 0 16px;border-top:1px solid #34322f;font-size:clamp(15px,1.4vw,19px);font-weight:600;letter-spacing:-.01em;transition:color .2s}
+.cl a span{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;letter-spacing:.06em;color:#8d887f;margin-bottom:4px}
+.cl a:hover{color:var(--accent)}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:40px 0 0;font-size:12px;color:#8d887f}
+
+/* 크게 보기 */
+dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:92vh;margin:auto;color:var(--cream)}
+dialog::backdrop{background:rgba(10,10,9,.88)}
+dialog .in{display:flex;flex-direction:column;gap:12px}
+dialog video,dialog img{max-height:80vh;width:auto;max-width:100%;margin:0 auto;background:#000}
+dialog .db{display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-size:14px}
+dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--cream);border-bottom:1px solid currentColor}
+
+/* 커서 라벨 */
+.cur-l{position:fixed;left:0;top:0;z-index:60;pointer-events:none;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;background:var(--accent);color:#fff;padding:5px 8px;transform:translate(-50%,-50%) scale(0);transition:transform .2s;white-space:nowrap}
+.cur-l.on{transform:translate(12px,14px) scale(1)}
+
+/* 나타나기 */
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .state,.svc3,.hero .cap{animation:up 1.1s cubic-bezier(.2,.7,.2,1) both}
+  .svc3{animation-delay:.18s}
+  .name .s{animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+  .name .s:nth-child(3){animation-delay:.08s}
+  .name .clip{animation:wipe 1.3s .25s cubic-bezier(.7,0,.2,1) both}
+}
+@keyframes up{from{opacity:0;transform:translateY(30px)}}
+@keyframes rise{from{transform:translateY(.35em);opacity:0}}
+@keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion:reduce){.marq .tr{animation:none}.ast{animation:none!important}html{scroll-behavior:auto}}
+
+/* 좁은 화면 */
+@media (max-width:980px){
+  .bar{grid-template-columns:1fr auto auto}
+  .bar .c2,.bar .c4{display:none}
+  .svc3{grid-template-columns:1fr 1fr;gap:12px 18px}
+  .wide{grid-template-columns:1fr;gap:22px}
+  .ig{grid-template-columns:1fr}
+  .pvw{display:none}
+  .nums{grid-template-columns:1fr 1fr}
+  .nums div:last-child{grid-column:1/-1}
+  .svc .r{grid-template-columns:1fr;gap:10px}
+  .teach{grid-template-columns:1fr}
+  .cl{grid-template-columns:1fr 1fr}
+  .shd{flex-direction:column;align-items:flex-start}
+  .shd p{text-align:left}
+}
+@media (min-width:981px){.state{text-align:justify}}
+@media (max-width:560px){
+  body{font-size:14.5px}
+  .bar{gap:0 12px}
+  .bar .c3 .t{display:none}
+  .th{display:none}
+  .row{grid-template-columns:2.3em minmax(0,1fr) 2.8em;gap:10px}
+  .row .ty{grid-column:2/3;grid-row:2;margin-top:2px}
+  .row .yr{grid-column:3;grid-row:1}
+  .cl{grid-template-columns:1fr}
+  .name .clip{height:.56em}
+  .foot .lbl:nth-child(2){display:none}
+}
+/* 영어판 */
+body{word-break:normal;overflow-wrap:break-word}
+.name{font-size:clamp(46px,12.6vw,240px);letter-spacing:-.05em;padding-bottom:.27em}
+@media (min-width:981px){.state{text-align:left}}
+.name .clip{min-width:.9em}
+.state{font-size:clamp(28px,4.1vw,78px)}
+.cap .lbl a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.cap .lbl a:hover{color:var(--accent)}
+.vnote{padding:0 var(--pad);margin-top:14px;font-size:12.5px;color:#8d887f;max-width:70ch}
+@media (max-width:560px){.name .clip{height:.6em}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ast" viewBox="-50 -50 100 100"><path d="M0-46V46M-46 0H46M-32.5-32.5 32.5 32.5M-32.5 32.5 32.5-32.5"/></symbol></svg>
+
+<header class="bar">
+  <b class="c1">KIM JINHYEON — Video editor</b>
+  <span class="c2">Short-form · Long-form · AI video</span>
+  <span class="c3">Andong, KR <span class="t" id="clock">--:--:--</span></span>
+  <span class="c4 on"><svg class="ast" aria-hidden="true"><use href="#ast"/></svg>Available now · Remote worldwide</span>
+  <a class="go" href="#contact">Contact ↘</a>
+</header>
+
+<section class="hero" id="top">
+  <div class="cap">
+    <span class="lbl">( One-person studio · <b>ANDONG, SOUTH KOREA</b> )</span>
+    <span class="lbl">FOLIO 2026 — EN · <a href="../" hreflang="ko" lang="ko">한국어</a></span>
+  </div>
+  <p class="state"><svg class="ast" aria-hidden="true"><use href="#ast"/></svg><strong>Raw footage in, <em>finished</em> videos out.</strong> I cut <strong>reels</strong> and <strong>shorts</strong>, turn <strong>long recordings</strong> into episodes and clips, and make <strong>AI video</strong> with my own characters. Editing, captions, sound and motion, <span class="lt">from one desk in Korea</span>.</p>
+  <div>
+    <div class="svc3">
+      <span><b>Short-form</b>Reels, Shorts, TikTok — captions, sound effects, motion text</span>
+      <span><b>Long-form</b>YouTube episodes, podcasts, live streams into episodes and clips</span>
+      <span><b>AI video</b>AI characters, music videos, AI voice-over</span>
+      <span><b>Also</b>Product pages, carousels, websites, HWP documents</span>
+    </div>
+    <h1 class="name" aria-label="Kim Jinhyeon"><span class="s">Kim</span><span class="clip" aria-hidden="true"><video src="../v/name_loop.mp4" poster="../v/name_loop.jpg" autoplay muted loop playsinline preload="auto"></video></span><span class="s">Jinhyeon</span></h1>
+    <div class="foot"><span class="lbl">01/</span><span class="lbl">AI-generated scene — Andong Mask Dance Festival music video</span><a class="lbl" href="#video">See work ↓</a></div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="tr" id="mq"></div></div>
+
+<section class="film" id="video">
+  <div class="shd rv">
+    <h2><b>Video</b><br>Things that move</h2>
+    <p>From vertical reels to AI music videos. Tap any video to watch it large, with sound.</p>
+  </div>
+  <div class="wide rv" id="wide"></div>
+  <div class="reels rv" id="reels"></div>
+  <div class="hint"><span class="lbl">← Swipe for more</span><span class="lbl">( 9 : 16 )</span></div>
+  <p class="vnote">Most of these videos are in Korean, made for Korean audiences. The first reel is in English. For the others, watch the cuts, pacing, captions and sound.</p>
+</section>
+
+<section class="idx" id="work">
+  <div class="shd rv">
+    <h2><b>Work</b> index</h2>
+    <p>Video first, plus a few design and automation projects. Click a row to open it.</p>
+  </div>
+  <div class="ig">
+    <div class="rv">
+      <div class="th lbl"><span>NO.</span><span>Project</span><span>Type</span><span>Year</span></div>
+      <div id="rows"></div>
+      <p class="note">Client work I don't have permission to show is described in text only.</p>
+    </div>
+    <aside class="pvw" aria-hidden="true">
+      <div class="box" id="pbox"></div>
+      <div class="meta"><b id="pt"></b><span class="lbl" id="pm"></span></div>
+    </aside>
+  </div>
+</section>
+
+<section class="nums" aria-label="Work in numbers">
+  <div class="rv"><big>7h<span class="ar">→</span>29m</big><p>A <b>7-hour live stream</b> cut into a 29-minute episode and 2 shorts, with motion graphics at 10 key moments</p></div>
+  <div class="rv"><big>1,251</big><p><b>1,251 AI voice lines</b> synced with subtitles in a 2-hour-13-minute narrated video</p></div>
+  <div class="rv"><big>8<sup>eps</sup></big><p>An <b>AI character short series</b> about Hahoe Village, in Korean and English</p></div>
+  <div class="rv"><big>6<sup>languages</sup></big><p>A <b>co-op website</b> that switches between 6 languages, planned, built and deployed by me</p></div>
+  <div class="rv"><big>20<sup>min</sup></big><p>A <b>28-page Korean report</b> drafted from last year's HWP file by my own automation</p></div>
+</section>
+
+<section class="svc" id="services" aria-label="What I do">
+  <div class="r rv"><h3><b>Short</b>-form</h3><ul><li>Reels, Shorts and TikTok edits</li><li>Captions, sound effects, motion text</li><li>Product and brand videos</li></ul><p>Send your raw clips and a reference you like. I match its pace and style.</p></div>
+  <div class="r rv"><h3><b>Long</b>-form</h3><ul><li>YouTube episodes from raw footage</li><li>Podcast and live-stream clips</li><li>Interviews and talking-head cleanup</li></ul><p>Long recordings become an episode plus shorts. Before cutting, I send a story outline for you to approve.</p></div>
+  <div class="r rv"><h3><b>AI</b> video</h3><ul><li>AI character series</li><li>AI music videos</li><li>AI voice-over</li></ul><p>Generated scenes edited like real footage, with a consistent character from episode to episode.</p></div>
+  <div class="r rv"><h3><b>Korea</b> work</h3><ul><li>Korean product pages and carousels</li><li>HWP (Hangul) file conversion</li><li>Korean-language video and captions</li></ul><p>When a project needs someone who reads Korean: documents, product pages and translation.</p></div>
+</section>
+
+<section class="teach" id="how">
+  <h2 class="rv"><b>How</b><br>I work<em>.</em></h2>
+  <div class="rv">
+    <p>You send footage and a reference. I send a first cut, you mark what to change, I revise. Every quote includes the revision rounds.</p>
+    <dl>
+      <dt>Software</dt><dd>Adobe Premiere Pro, plus my own scripts for transcripts, captions and batch cutting</dd>
+      <dt>Files</dt><dd>Google Drive, Dropbox or WeTransfer</dd>
+      <dt>Time zone</dt><dd>Korea (KST). Footage sent in your evening is usually edited by your morning</dd>
+      <dt>Languages</dt><dd>English for messages, native Korean</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="rv">Let's<br>make it<em>.</em></h2>
+  <div class="cl rv">
+    <a href="mailto:impactmarker.marketing@gmail.com"><span>Email</span>impactmarker.marketing@gmail.com</a>
+    <a href="https://www.reddit.com/user/jinlamyeon/" target="_blank" rel="noopener"><span>Reddit</span>u/jinlamyeon ↗</a>
+    <a href="https://www.instagram.com/ai.hansul/" target="_blank" rel="noopener"><span>Instagram · in Korean</span>@ai.hansul ↗</a>
+  </div>
+  <footer><span>© 2026 Kim Jinhyeon · Andong, South Korea · Remote worldwide</span><span>Andong National University, European Culture &amp; Tourism / Smart Tourism · GTQ Level 1 (Korean graphics certificate) · Google Cloud AI course, 620 hours</span></footer>
+</section>
+
+<dialog id="lb"><div class="in"><div class="db"><b id="lbt"></b><button class="x" id="lbx" type="button">Close ✕</button></div><div id="lbm"></div><span class="lbl" id="lbs"></span></div></dialog>
+<div class="cur-l" id="cl">View ↗</div>
+
+<script>
+// Media: [file, title, type, length · date, note]
+const WIDE=[
+ ["talchum_mv","Andong Mask Dance Festival — music video parody","AI video","0:35 · Sep 2026","Promo for a guesthouse in Hahoe Village · AI-generated video"],
+ ["mv_ai","AI character music video","AI video","0:30 · Oct 2026","Contest entry · kinetic typography"],
+ ["kinder_demo","Kindergarten intro video (sample)","Motion · narration sync","0:55 · Oct 2026","Sample for a fictional kindergarten · photos and text appear in time with the narration"]
+];
+const REELS=[
+ ["ryuha_03_en","Ryuha Ep.3 (English)","0:50","AI character short · English version for foreign visitors"],
+ ["pharm_reel","Pharmacist health-tip reel","0:14","Client edit · face blurred · Korean"],
+ ["ryuha_07","Ryuha Ep.7","0:56","AI character series about Hahoe Village · Korean"],
+ ["songpyeon_guide","Directions to a rice-cake class","0:31","Route animated on a real map · AI voice-over · Korean"],
+ ["hansul_tip03","AI tip: tidy meeting notes","0:42","Reel for my AI-tips account · motion graphics · Korean"],
+ ["ryuha_08","Ryuha Ep.8","0:49","AI character · captions · transitions · Korean"],
+ ["hansul_muse","Signing up for Meta Muse","0:43","Screen-recording tutorial reel · Korean"],
+ ["ryuha_06","Ryuha Ep.6","0:40","AI character series · Korean"]
+];
+// Index: [title, type, year, media {v:video|i:image|t:text}, note]
+const ROWS=[
+ ["AI character short series 「Ryuha」","AI video · 8 eps · KO/EN","2026",{v:"ryuha_03_en"},"Stories of Hahoe Village told by an AI character. Planning, script, generation and editing, all by me"],
+ ["Andong Mask Dance Festival — music video parody","AI video · promo","2026",{v:"talchum_mv"},"35-second AI music video promoting a guesthouse in Hahoe Village"],
+ ["AI character music video","AI video · contest","2026",{v:"mv_ai"},"Contest entry with kinetic typography"],
+ ["7-hour live stream → 29-minute episode + 2 shorts","Editing · motion graphics","2026",{t:["A <b>7-hour</b> live stream<br>into a <b>29-minute</b> episode","Highlights, chapters and info cards, with emphasis effects at 10 key moments. The two shorts were rebuilt to match the client's reference format."]},"Client work · not shown publicly"],
+ ["2-hour-13-minute narrated video","AI voice · subtitle sync","2026",{t:["<b>1,251</b> AI voice lines,<br>synced line by line","Sponsor notes, title narration, chapter labels and grouped screens. Delivered in two versions: normal speed and 1.1×."]},"Client work · not shown publicly"],
+ ["Pharmacist health-tip reel","Short-form edit","2026",{v:"pharm_reel"},"Client's on-camera video, edited · face blurred"],
+ ["Directions to a rice-cake class","Map animation","2026",{v:"songpyeon_guide"},"Route animated on a real map · AI voice-over"],
+ ["Kindergarten intro video (sample)","Motion · narration sync","2026",{v:"kinder_demo"},"Sample for a fictional kindergarten. Photos and text appear on the narrated words"],
+ ["Rice-cake class ad cards","Ad design · KO/EN/JA","2026",{i:"songpyeon_card"},"Instagram ads for a Hahoe Village class in Korean, English and Japanese"],
+ ["Culture co-op website","Web · 6 languages","2026",{i:"munlink_site",href:"https://munlink.co.kr"},"Planned, designed, built and deployed by me, with a 6-language switch"],
+ ["HWP (Hangul) report automation","Document automation","2026",{t:["A <b>28-page</b> report,<br>drafted in <b>20 minutes</b>","Feed in last year's HWP file and get this year's draft in the same layout."]},"My own tool"]
+];
+
+const $=s=>document.querySelector(s);
+const pad=n=>String(n).padStart(2,"0");
+
+// Clock (Andong, KST)
+const fmt=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Seoul",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});
+const tick=()=>{$("#clock").textContent=fmt.format(new Date())};tick();setInterval(tick,1000);
+
+// Marquee
+const words=["Reels","Shorts","TikTok","YouTube episodes","Podcast clips","Captions","Motion text","AI video","AI voice-over","Product videos"];
+const one=words.map(w=>`${w}<i><svg class="ast"><use href="#ast"/></svg></i>`).join("");
+$("#mq").innerHTML=`<span>${one}</span><span>${one}</span>`;
+
+// Video
+$("#wide").innerHTML=WIDE.map(([f,t,k,d,s])=>`<figure data-v="${f}" data-t="${t}" data-s="${d} · ${s}"><div class="vb"><video src="../v/${f}.mp4" poster="../v/${f}.jpg" muted loop playsinline preload="none" data-auto></video></div><figcaption class="cr"><b>${t}</b><span>${k}</span><span>${d}</span><span>${s}</span></figcaption></figure>`).join("");
+$("#reels").innerHTML=REELS.map(([f,t,d,s])=>`<figure class="reel" data-v="${f}" data-t="${t}" data-s="${d} · ${s}"><div class="vb"><video src="../v/${f}.mp4" poster="../v/${f}.jpg" muted loop playsinline preload="none" data-auto></video><span class="snd">▶ Large · sound</span></div><figcaption class="cr"><b>${t}</b><span>${d}</span><span>${s}</span></figcaption></figure>`).join("");
+const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else{v.pause()}}),{threshold:.45});
+document.querySelectorAll("video[data-auto]").forEach(v=>io.observe(v));
+
+// Index + preview
+const pbox=$("#pbox");
+$("#rows").innerHTML=ROWS.map((r,i)=>{const [t,k,y,m]=r;const priv=m.t&&r[4].includes("not shown");return `<button class="row${priv?" priv":""}" type="button" data-i="${i}"><span class="no">${pad(i+1)}</span><span class="ti">${t}</span><span class="ty">${k}</span><span class="yr">${y}</span></button>`}).join("");
+pbox.innerHTML=ROWS.map((r,i)=>{const m=r[3];if(m.v)return `<video data-i="${i}" src="../v/${m.v}.mp4" poster="../v/${m.v}.jpg" muted loop playsinline preload="none"></video>`;if(m.i)return `<img data-i="${i}" src="../i/${m.i}.jpg" alt="${r[0]}" loading="lazy">`;return `<div class="txt" data-i="${i}"><big>${m.t[0]}</big><small>${m.t[1]}</small></div>`}).join("");
+let cur=-1;
+function show(i){if(i===cur)return;cur=i;document.querySelectorAll(".row").forEach(b=>b.classList.toggle("cur",+b.dataset.i===i));pbox.querySelectorAll("[data-i]").forEach(el=>{const on=+el.dataset.i===i;el.classList.toggle("show",on);if(el.tagName==="VIDEO"){if(on){el.play().catch(()=>{})}else{el.pause()}}});$("#pt").textContent=ROWS[i][0];$("#pm").textContent=ROWS[i][4]}
+show(0);
+document.querySelectorAll(".row").forEach(b=>{b.addEventListener("mouseenter",()=>show(+b.dataset.i));b.addEventListener("focus",()=>show(+b.dataset.i));b.addEventListener("click",()=>openRow(+b.dataset.i))});
+
+// Lightbox
+const lb=$("#lb"),lbm=$("#lbm");
+function openMedia(html,t,s){lbm.innerHTML=html;$("#lbt").textContent=t;$("#lbs").textContent=s||"";lb.showModal();const v=lbm.querySelector("video");if(v){document.querySelectorAll("video").forEach(o=>{if(o!==v)o.pause()});v.play().catch(()=>{})}}
+function openRow(i){const r=ROWS[i],m=r[3];if(m.v)return openMedia(`<video src="../v/${m.v}.mp4" poster="../v/${m.v}.jpg" controls playsinline></video>`,r[0],r[4]);if(m.i){const img=`<img src="../i/${m.i}.jpg" alt="${r[0]}">`;return openMedia(m.href?`<a href="${m.href}" target="_blank" rel="noopener">${img}</a>`:img,r[0],r[4]+(m.href?" · Click the image to open the site":""))}openMedia(`<div style="background:#141312;border:1px solid #2b2a28;padding:clamp(24px,5vw,56px);max-width:720px"><p style="font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.6vw,56px);line-height:1.1;letter-spacing:-.03em;margin-bottom:18px">${m.t[0]}</p><p style="color:#a9a399;font-size:15px;line-height:1.7">${m.t[1]}</p></div>`,r[0],r[4])}
+document.querySelectorAll("#wide figure,#reels .reel").forEach(f=>f.addEventListener("click",()=>openMedia(`<video src="../v/${f.dataset.v}.mp4" poster="../v/${f.dataset.v}.jpg" controls playsinline></video>`,f.dataset.t,f.dataset.s)));
+$("#lbx").addEventListener("click",()=>lb.close());
+lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
+lb.addEventListener("close",()=>{lbm.innerHTML="";document.querySelectorAll("video[data-auto]").forEach(v=>{const r=v.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)v.play().catch(()=>{})})});
+
+// Cursor label (pointer devices only)
+if(matchMedia("(hover:hover) and (pointer:fine)").matches){const cl=$("#cl");document.addEventListener("pointermove",e=>{cl.style.left=e.clientX+"px";cl.style.top=e.clientY+"px"});document.querySelectorAll(".row,#wide figure,#reels .reel").forEach(el=>{el.addEventListener("mouseenter",()=>cl.classList.add("on"));el.addEventListener("mouseleave",()=>cl.classList.remove("on"))})}
+
+// Reveal
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");ro.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
