@@ -22,6 +22,7 @@
 :root{
   --paper:#F1EDE4;--paper2:#E8E3D7;--ink:#141312;--mute:#7A756C;--rule:rgba(20,19,18,.16);
   --accent:#DD4527;--film:#0E0E0D;--film2:#1A1918;--cream:#EEE9DE;
+  --fmute:#8D887F;--fsoft:#A9A399;--fline:#2B2A28;--fline2:#34322F;
   --serif:"Hahmlet","Noto Serif KR",serif;--sans:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,monospace;--latin:"Instrument Serif",serif;
   --pad:clamp(16px,3.2vw,44px);
@@ -34,7 +35,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;op
 a{color:inherit;text-decoration:none}
 img,video{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
-.mono{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mute)}
 
 /* 위 막대 */
@@ -75,25 +76,49 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 
 /* 영상 (어두운 구간) */
 .film{background:var(--film);color:var(--cream);padding:clamp(48px,9vh,110px) 0 clamp(40px,7vh,90px)}
-.film .lbl{color:#8d887f}
+.film .lbl{color:var(--fmute)}
 .shd{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:0 var(--pad);margin-bottom:clamp(22px,4vh,40px)}
 .shd h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,7vw,120px);line-height:.95;letter-spacing:-.04em}
 .shd h2 b{font-family:var(--sans);font-weight:900;letter-spacing:-.06em}
-.shd p{max-width:34ch;font-size:13.5px;color:#a9a399;text-align:right}
+.shd p{max-width:34ch;font-size:13.5px;color:var(--fsoft);text-align:right}
 .wide{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:clamp(8px,1.2vw,16px);padding:0 var(--pad);margin-bottom:clamp(30px,5vh,56px)}
 .wide figure{position:relative;cursor:pointer}
 .wide .vb{aspect-ratio:16/9;overflow:hidden;background:var(--film2)}
 .wide video{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .wide figure:hover video{transform:scale(1.03)}
-.cr{display:flex;flex-wrap:wrap;gap:2px 12px;padding-top:10px;font-size:12.5px;color:#a9a399;border-top:1px solid #2b2a28;margin-top:10px}
+.cr{display:flex;flex-wrap:wrap;gap:2px 12px;padding-top:10px;font-size:12.5px;color:var(--fsoft);border-top:1px solid var(--fline);margin-top:10px}
 .cr b{width:100%;color:var(--cream);font-weight:600;font-size:14px}
-.reels{display:flex;gap:clamp(8px,1.2vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 6px;scrollbar-width:none}
+.reels{display:flex;gap:clamp(8px,1.2vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 6px;scroll-padding-inline:var(--pad);scrollbar-width:none}
 .reels::-webkit-scrollbar{display:none}
 .reel{flex:0 0 clamp(178px,17.5vw,268px);scroll-snap-align:start;cursor:pointer}
 .reel .vb{position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--film2)}
 .reel video{width:100%;height:100%;object-fit:cover}
 .reel .snd{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:#fff;mix-blend-mode:difference}
 .hint{padding:14px var(--pad) 0;display:flex;justify-content:space-between}
+
+/* 거르개·넘기기 */
+[hidden]{display:none!important}
+.flt{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 22px;padding:0 var(--pad);margin-bottom:clamp(20px,3.4vh,32px)}
+.flt .lbl{margin-right:2px}
+.flt button{font-size:14px;color:var(--fmute);padding:3px 0 4px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.flt button sup{font-family:var(--mono);font-size:10px;letter-spacing:.04em;margin-left:4px;vertical-align:.55em}
+.flt button:hover{color:var(--cream)}
+.flt button[aria-pressed="true"]{color:var(--cream);border-bottom-color:var(--accent)}
+.fnote{display:none;margin:0 var(--pad) clamp(24px,4vh,40px);padding:14px 0;border-top:1px solid var(--fline);border-bottom:1px solid var(--fline);font-size:14px;line-height:1.6;color:var(--fsoft)}
+.fnote a{color:var(--cream);border-bottom:1px solid currentColor}
+.fnote a:hover{color:var(--accent)}
+.film.f-real .fnote{display:block}
+.cr .kd{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;align-self:center}
+.cr .kd.real{color:var(--accent)}
+.hint .nav{display:flex;gap:20px}
+.hint .nav button{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--fmute);transition:color .2s,opacity .2s}
+.hint .nav button:hover:not(:disabled){color:var(--cream)}
+.hint .nav button:disabled{opacity:.3;cursor:default}
+dialog .db{flex-wrap:wrap}
+dialog .dn{display:flex;align-items:baseline;gap:16px;margin-left:auto}
+dialog #lbc{color:var(--fmute)}
+dialog .in:focus{outline:none}
+.teach.how{background:var(--paper)}
 
 /* 작업 목록 */
 .idx{padding:clamp(56px,10vh,120px) var(--pad) clamp(40px,7vh,80px)}
@@ -117,7 +142,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 .pvw .box .txt{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,2.4vw,32px);background:var(--film);color:var(--cream);object-fit:initial}
 .pvw .box .txt big{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.4vw,52px);line-height:1.08;letter-spacing:-.03em;margin-bottom:14px}
 .pvw .box .txt big b{font-family:var(--sans);font-weight:900;letter-spacing:-.05em}
-.pvw .box .txt small{font-size:13px;color:#a9a399;line-height:1.55}
+.pvw .box .txt small{font-size:13px;color:var(--fsoft);line-height:1.55}
 .pvw .meta{display:flex;justify-content:space-between;gap:12px;padding-top:10px;font-size:13px}
 .pvw .meta b{font-weight:600}
 .note{margin-top:18px;font-size:12.5px;color:var(--mute)}
@@ -157,10 +182,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 .contact h2{font-family:var(--serif);font-weight:800;font-size:clamp(68px,15.5vw,270px);line-height:.86;letter-spacing:-.065em;margin-bottom:clamp(36px,7vh,80px)}
 .contact h2 em{font-style:normal;color:var(--accent)}
 .cl{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(14px,2vw,28px)}
-.cl a{display:block;padding:14px 0 16px;border-top:1px solid #34322f;font-size:clamp(15px,1.4vw,19px);font-weight:600;letter-spacing:-.01em;transition:color .2s}
-.cl a span{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;letter-spacing:.06em;color:#8d887f;margin-bottom:4px}
+.cl a{display:block;padding:14px 0 16px;border-top:1px solid var(--fline2);font-size:clamp(15px,1.4vw,19px);font-weight:600;letter-spacing:-.01em;transition:color .2s}
+.cl a span{display:block;font-family:var(--mono);font-size:10.5px;font-weight:400;letter-spacing:.06em;color:var(--fmute);margin-bottom:4px}
 .cl a:hover{color:var(--accent)}
-footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:40px 0 0;font-size:12px;color:#8d887f}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:40px 0 0;font-size:12px;color:var(--fmute)}
 
 /* 크게 보기 */
 dialog{border:0;padding:0;background:transparent;max-width:min(94vw,1100px);max-height:92vh;margin:auto;color:var(--cream)}
@@ -208,6 +233,8 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
 @media (min-width:981px){.state{text-align:justify}}
 @media (max-width:560px){
   body{font-size:14.5px}
+  .nums div:first-child{grid-column:1/-1}
+  .nums div:last-child{grid-column:auto}
   .bar{gap:0 12px}
   .bar .c3 .t{display:none}
   .th{display:none}
@@ -226,7 +253,7 @@ body{word-break:normal;overflow-wrap:break-word}
 .state{font-size:clamp(28px,4.1vw,78px)}
 .cap .lbl a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .cap .lbl a:hover{color:var(--accent)}
-.vnote{padding:0 var(--pad);margin-top:14px;font-size:12.5px;color:#8d887f;max-width:70ch}
+.vnote{padding:0 var(--pad);margin-top:14px;font-size:12.5px;color:var(--fmute);max-width:70ch}
 @media (max-width:560px){.name .clip{height:.6em}}
 </style>
 </head>
@@ -264,12 +291,14 @@ body{word-break:normal;overflow-wrap:break-word}
 <section class="film" id="video">
   <div class="shd rv">
     <h2><b>Video</b><br>Things that move</h2>
-    <p>From vertical reels to AI music videos. Tap any video to watch it large, with sound.</p>
+    <p>From real-footage edits to AI music videos. Tap any video to watch it large, with sound.</p>
   </div>
+  <div class="flt rv" id="flt" role="group" aria-label="Video type"></div>
+  <p class="fnote">Longer real-footage work (a 7-hour live stream cut into a 29-minute episode and 2 shorts) is client work that isn’t shown publicly. It is described in <a href="#work" data-row="3">Index 04</a>.</p>
   <div class="wide rv" id="wide"></div>
   <div class="reels rv" id="reels"></div>
-  <div class="hint"><span class="lbl">← Swipe for more</span><span class="lbl">( 9 : 16 )</span></div>
-  <p class="vnote">Most of these videos are in Korean, made for Korean audiences. The first reel is in English. For the others, watch the cuts, pacing, captions and sound.</p>
+  <div class="hint"><span class="nav" id="rnav"><button type="button" id="rp">← Prev</button><button type="button" id="rn">Next →</button></span><span class="lbl">( 9 : 16 )</span></div>
+  <p class="vnote">Most of these videos are in Korean, made for Korean audiences. Ryuha Ep.3 is in English. For the others, watch the cuts, pacing, captions and sound.</p>
 </section>
 
 <section class="idx" id="work">
@@ -314,6 +343,7 @@ body{word-break:normal;overflow-wrap:break-word}
       <dt>Files</dt><dd>Google Drive, Dropbox or WeTransfer</dd>
       <dt>Time zone</dt><dd>Korea (KST). Footage sent in your evening is usually edited by your morning</dd>
       <dt>Languages</dt><dd>English for messages, native Korean</dd>
+      <dt>Real footage</dt><dd><a class="ul" href="#real">Show real-footage edits only ↑</a></dd>
     </dl>
   </div>
 </section>
@@ -328,28 +358,28 @@ body{word-break:normal;overflow-wrap:break-word}
   <footer><span>© 2026 Kim Jinhyeon · Andong, South Korea · Remote worldwide</span><span>Andong National University, European Culture &amp; Tourism / Smart Tourism · GTQ Level 1 (Korean graphics certificate) · Google Cloud AI course, 620 hours</span></footer>
 </section>
 
-<dialog id="lb"><div class="in"><div class="db"><b id="lbt"></b><button class="x" id="lbx" type="button">Close ✕</button></div><div id="lbm"></div><span class="lbl" id="lbs"></span></div></dialog>
+<dialog id="lb"><div class="in" tabindex="-1" autofocus><div class="db"><b id="lbt"></b><span class="dn"><button class="x" id="lbp" type="button">← Prev</button><span class="lbl" id="lbc"></span><button class="x" id="lbn" type="button">Next →</button><button class="x" id="lbx" type="button">Close ✕</button></span></div><div id="lbm"></div><span class="lbl" id="lbs"></span></div></dialog>
 <div class="cur-l" id="cl">View ↗</div>
 
 <script>
 // Media: [file, title, type, length · date, note]
 const WIDE=[
- ["talchum_mv","Andong Mask Dance Festival — music video parody","AI video","0:35 · Sep 2026","Promo for a guesthouse in Hahoe Village · AI-generated video"],
- ["mv_ai","AI character music video","AI video","0:30 · Oct 2026","Contest entry · kinetic typography"],
- ["kinder_demo","Kindergarten intro video (sample)","Motion · narration sync","0:55 · Oct 2026","Sample for a fictional kindergarten · photos and text appear in time with the narration"]
+ ["talchum_mv","Andong Mask Dance Festival — music video parody","AI video","0:35 · Sep 2026","Promo for a guesthouse in Hahoe Village · AI-generated video","ai"],
+ ["mv_ai","AI character music video","AI video","0:30 · Oct 2026","Contest entry · kinetic typography","ai"],
+ ["kinder_demo","Kindergarten intro video (sample)","Motion · narration sync","0:55 · Oct 2026","Sample for a fictional kindergarten · photos and text appear in time with the narration","motion"]
 ];
 const REELS=[
- ["ryuha_03_en","Ryuha Ep.3 (English)","0:50","AI character short · English version for foreign visitors"],
- ["onsen_reel_a","Hot-spring trip reel (real footage)","0:25","Client footage edit · cuts on the beat · vertical title and info text"],
- ["onsen_reel_b","Hot-spring trip reel 2 (real footage)","0:20","Same footage, another cut · letterbox band · logo motion · satellite-map zoom · object labels"],
- ["saju_ad","Fortune-telling app ad","0:16","AI character · fast cuts, sound effects, AI voice-over · Korean"],
- ["pharm_reel","Pharmacist health-tip reel","0:14","Client edit · face blurred · Korean"],
- ["ryuha_07","Ryuha Ep.7","0:56","AI character series about Hahoe Village · Korean"],
- ["songpyeon_guide","Directions to a rice-cake class","0:31","Route animated on a real map · AI voice-over · Korean"],
- ["hansul_tip03","AI tip: tidy meeting notes","0:42","Reel for my AI-tips account · motion graphics · Korean"],
- ["ryuha_08","Ryuha Ep.8","0:49","AI character · captions · transitions · Korean"],
- ["hansul_muse","Signing up for Meta Muse","0:43","Screen-recording tutorial reel · Korean"],
- ["ryuha_06","Ryuha Ep.6","0:40","AI character series · Korean"]
+ ["ryuha_03_en","Ryuha Ep.3 (English)","0:50","AI character short · English version for foreign visitors","ai"],
+ ["onsen_reel_a","Hot-spring trip reel","0:25","Client footage edit · cuts on the beat · vertical title and info text","real"],
+ ["pharm_reel","Pharmacist health-tip reel","0:14","Client edit · face blurred · Korean","real"],
+ ["onsen_reel_b","Hot-spring trip reel 2","0:20","Same footage, another cut · letterbox band · logo motion · satellite-map zoom · object labels","real"],
+ ["saju_ad","Fortune-telling app ad","0:16","AI character · fast cuts, sound effects, AI voice-over · Korean","ai"],
+ ["ryuha_07","Ryuha Ep.7","0:56","AI character series about Hahoe Village · Korean","ai"],
+ ["songpyeon_guide","Directions to a rice-cake class","0:31","Route animated on a real map · AI voice-over · Korean","motion"],
+ ["hansul_tip03","AI tip: tidy meeting notes","0:42","Reel for my AI-tips account · motion graphics · Korean","motion"],
+ ["ryuha_08","Ryuha Ep.8","0:49","AI character · captions · transitions · Korean","ai"],
+ ["hansul_muse","Signing up for Meta Muse","0:43","Screen-recording tutorial reel · Korean","motion"],
+ ["ryuha_06","Ryuha Ep.6","0:40","AI character series · Korean","ai"]
 ];
 // Index: [title, type, year, media {v:video|i:image|t:text}, note]
 const ROWS=[
@@ -359,6 +389,7 @@ const ROWS=[
  ["7-hour live stream → 29-minute episode + 2 shorts","Editing · motion graphics","2026",{t:["A <b>7-hour</b> live stream<br>into a <b>29-minute</b> episode","Highlights, chapters and info cards, with emphasis effects at 10 key moments. The two shorts were rebuilt to match the client's reference format."]},"Client work · not shown publicly"],
  ["2-hour-13-minute narrated video","AI voice · subtitle sync","2026",{t:["<b>1,251</b> AI voice lines,<br>synced line by line","Sponsor notes, title narration, chapter labels and grouped screens. Delivered in two versions: normal speed and 1.1×."]},"Client work · not shown publicly"],
  ["Pharmacist health-tip reel","Short-form edit","2026",{v:"pharm_reel"},"Client's on-camera video, edited · face blurred"],
+ ["Hot-spring trip reels ×2","Reel edit · real footage","2026",{v:"onsen_reel_a"},"Client's travel footage cut two ways · cuts on the beat, letterbox band, satellite-map zoom"],
  ["Directions to a rice-cake class","Map animation","2026",{v:"songpyeon_guide"},"Route animated on a real map · AI voice-over"],
  ["Kindergarten intro video (sample)","Motion · narration sync","2026",{v:"kinder_demo"},"Sample for a fictional kindergarten. Photos and text appear on the narrated words"],
  ["Rice-cake class ad cards","Ad design · KO/EN/JA","2026",{i:"songpyeon_card"},"Instagram ads for a Hahoe Village class in Korean, English and Japanese"],
@@ -378,11 +409,32 @@ const words=["Reels","Shorts","TikTok","YouTube episodes","Podcast clips","Capti
 const one=words.map(w=>`${w}<i><svg class="ast"><use href="#ast"/></svg></i>`).join("");
 $("#mq").innerHTML=`<span>${one}</span><span>${one}</span>`;
 
-// Video
-$("#wide").innerHTML=WIDE.map(([f,t,k,d,s])=>`<figure data-v="${f}" data-t="${t}" data-s="${d} · ${s}"><div class="vb"><video src="../v/${f}.mp4" poster="../v/${f}.jpg" muted loop playsinline preload="none" data-auto></video></div><figcaption class="cr"><b>${t}</b><span>${k}</span><span>${d}</span><span>${s}</span></figcaption></figure>`).join("");
-$("#reels").innerHTML=REELS.map(([f,t,d,s])=>`<figure class="reel" data-v="${f}" data-t="${t}" data-s="${d} · ${s}"><div class="vb"><video src="../v/${f}.mp4" poster="../v/${f}.jpg" muted loop playsinline preload="none" data-auto></video><span class="snd">▶ Large · sound</span></div><figcaption class="cr"><b>${t}</b><span>${d}</span><span>${s}</span></figcaption></figure>`).join("");
+// Video — kinds: real footage · AI video · motion graphics (#real, #ai, #motion in the URL shows only that kind)
+const KIND={real:"Real footage",ai:"AI video",motion:"Motion graphics"},KS={real:"Real footage",ai:"AI",motion:"Motion"};
+const film=$("#video"),wide=$("#wide"),reels=$("#reels");
+wide.innerHTML=WIDE.map(([f,t,k,d,s,g])=>`<figure data-v="${f}" data-k="${g}" data-t="${t}" data-s="${d} · ${s}"><div class="vb"><video src="../v/${f}.mp4" poster="../v/${f}.jpg" muted loop playsinline preload="none" data-auto></video></div><figcaption class="cr"><b>${t}</b><span>${k}</span><span>${d}</span><span>${s}</span></figcaption></figure>`).join("");
+reels.innerHTML=REELS.map(([f,t,d,s,g])=>`<figure class="reel" data-v="${f}" data-k="${g}" data-t="${t}" data-s="${d} · ${s}"><div class="vb"><video src="../v/${f}.mp4" poster="../v/${f}.jpg" muted loop playsinline preload="none" data-auto></video><span class="snd">▶ Large · sound</span></div><figcaption class="cr"><b>${t}</b><span class="kd${g==="real"?" real":""}">${KS[g]}</span><span>${d}</span><span>${s}</span></figcaption></figure>`).join("");
 const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{})}else{v.pause()}}),{threshold:.45});
 document.querySelectorAll("video[data-auto]").forEach(v=>io.observe(v));
+const figs=()=>[...document.querySelectorAll("#wide figure,#reels .reel")];
+
+// Filter
+const kinds=[...WIDE.map(r=>r[5]),...REELS.map(r=>r[4])];
+$("#flt").innerHTML=`<span class="lbl">View</span>`+[["","All"],...Object.entries(KIND)].map(([k,n])=>`<button type="button" data-k="${k}" aria-pressed="${!k}">${n}<sup>${kinds.filter(x=>!k||x===k).length}</sup></button>`).join("");
+function setKind(k){
+  document.querySelectorAll("#flt button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===k));
+  figs().forEach(f=>f.hidden=!!k&&f.dataset.k!==k);
+  wide.hidden=!wide.querySelector("figure:not([hidden])");
+  film.classList.toggle("f-real",k==="real");
+  reels.scrollLeft=0;navState();
+}
+document.querySelectorAll("#flt button").forEach(b=>b.addEventListener("click",()=>{setKind(b.dataset.k);history.replaceState(null,"",b.dataset.k?"#"+b.dataset.k:"#video")}));
+
+// Reel row arrows (for mouse-only screens)
+const rp=$("#rp"),rn=$("#rn");
+function navState(){const m=reels.scrollWidth-reels.clientWidth;$("#rnav").hidden=m<4;rp.disabled=reels.scrollLeft<4;rn.disabled=reels.scrollLeft>m-4}
+[rp,rn].forEach((b,j)=>b.addEventListener("click",()=>{const c=reels.querySelector(".reel:not([hidden])"),w=c?c.offsetWidth:200;reels.scrollBy({left:(j?1:-1)*Math.max(w,reels.clientWidth-w*1.5),behavior:"smooth"})}));
+reels.addEventListener("scroll",navState,{passive:true});addEventListener("resize",navState);navState();
 
 // Index + preview
 const pbox=$("#pbox");
@@ -391,16 +443,29 @@ pbox.innerHTML=ROWS.map((r,i)=>{const m=r[3];if(m.v)return `<video data-i="${i}"
 let cur=-1;
 function show(i){if(i===cur)return;cur=i;document.querySelectorAll(".row").forEach(b=>b.classList.toggle("cur",+b.dataset.i===i));pbox.querySelectorAll("[data-i]").forEach(el=>{const on=+el.dataset.i===i;el.classList.toggle("show",on);if(el.tagName==="VIDEO"){if(on){el.play().catch(()=>{})}else{el.pause()}}});$("#pt").textContent=ROWS[i][0];$("#pm").textContent=ROWS[i][4]}
 show(0);
-document.querySelectorAll(".row").forEach(b=>{b.addEventListener("mouseenter",()=>show(+b.dataset.i));b.addEventListener("focus",()=>show(+b.dataset.i));b.addEventListener("click",()=>openRow(+b.dataset.i))});
+let hold=0;
+document.querySelectorAll(".row").forEach(b=>{b.addEventListener("mouseenter",()=>{if(Date.now()>hold)show(+b.dataset.i)});b.addEventListener("focus",()=>show(+b.dataset.i));b.addEventListener("click",()=>openRow(+b.dataset.i))});
+document.querySelectorAll("a[data-row]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const i=+a.dataset.row;const el=document.querySelector(`.row[data-i="${i}"]`).getBoundingClientRect();scrollTo({top:el.top+scrollY-innerHeight/2+el.height/2,behavior:"smooth"});show(i);hold=Date.now()+1400}));
 
-// Lightbox
-const lb=$("#lb"),lbm=$("#lbm");
-function openMedia(html,t,s){lbm.innerHTML=html;$("#lbt").textContent=t;$("#lbs").textContent=s||"";lb.showModal();const v=lbm.querySelector("video");if(v){document.querySelectorAll("video").forEach(o=>{if(o!==v)o.pause()});v.play().catch(()=>{})}}
-function openRow(i){const r=ROWS[i],m=r[3];if(m.v)return openMedia(`<video src="../v/${m.v}.mp4" poster="../v/${m.v}.jpg" controls playsinline></video>`,r[0],r[4]);if(m.i){const img=`<img src="../i/${m.i}.jpg" alt="${r[0]}">`;return openMedia(m.href?`<a href="${m.href}" target="_blank" rel="noopener">${img}</a>`:img,r[0],r[4]+(m.href?" · Click the image to open the site":""))}openMedia(`<div style="background:#141312;border:1px solid #2b2a28;padding:clamp(24px,5vw,56px);max-width:720px"><p style="font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.6vw,56px);line-height:1.1;letter-spacing:-.03em;margin-bottom:18px">${m.t[0]}</p><p style="color:#a9a399;font-size:15px;line-height:1.7">${m.t[1]}</p></div>`,r[0],r[4])}
-document.querySelectorAll("#wide figure,#reels .reel").forEach(f=>f.addEventListener("click",()=>openMedia(`<video src="../v/${f.dataset.v}.mp4" poster="../v/${f.dataset.v}.jpg" controls playsinline></video>`,f.dataset.t,f.dataset.s)));
+// Lightbox (prev/next in the visible order, ←/→ keys)
+const lb=$("#lb"),lbm=$("#lbm");let seq=[],pos=0;
+function openMedia(html,t,s){lbm.innerHTML=html;$("#lbt").textContent=t;$("#lbs").textContent=s||"";if(!lb.open)lb.showModal();const v=lbm.querySelector("video");if(v){document.querySelectorAll("video").forEach(o=>{if(o!==v)o.pause()});v.play().catch(()=>{})}}
+function rowItem(i){const r=ROWS[i],m=r[3];if(m.v)return [`<video src="../v/${m.v}.mp4" poster="../v/${m.v}.jpg" controls playsinline></video>`,r[0],r[4]];if(m.i){const img=`<img src="../i/${m.i}.jpg" alt="${r[0]}">`;return [m.href?`<a href="${m.href}" target="_blank" rel="noopener">${img}</a>`:img,r[0],r[4]+(m.href?" · Click the image to open the site":"")]}return [`<div style="background:#141312;border:1px solid var(--fline);padding:clamp(24px,5vw,56px);max-width:720px"><p style="font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.6vw,56px);line-height:1.1;letter-spacing:-.03em;margin-bottom:18px">${m.t[0]}</p><p style="color:var(--fsoft);font-size:15px;line-height:1.7">${m.t[1]}</p></div>`,r[0],r[4]]}
+const figItem=f=>[`<video src="../v/${f.dataset.v}.mp4" poster="../v/${f.dataset.v}.jpg" controls playsinline></video>`,f.dataset.t,f.dataset.s];
+function go(d){pos=(pos+d+seq.length)%seq.length;openMedia(...seq[pos]());const many=seq.length>1;$("#lbp").hidden=$("#lbn").hidden=!many;$("#lbc").textContent=many?`${pos+1} / ${seq.length}`:""}
+function openSeq(list,i){seq=list;pos=i;go(0)}
+function openRow(i){openSeq(ROWS.map((r,j)=>()=>rowItem(j)),i)}
+figs().forEach(f=>f.addEventListener("click",()=>{const vis=figs().filter(x=>!x.hidden);openSeq(vis.map(x=>()=>figItem(x)),vis.indexOf(f))}));
+$("#lbp").addEventListener("click",()=>go(-1));$("#lbn").addEventListener("click",()=>go(1));
+document.addEventListener("keydown",e=>{if(!lb.open||e.target.tagName==="VIDEO")return;if(e.key==="ArrowRight")go(1);else if(e.key==="ArrowLeft")go(-1)});
 $("#lbx").addEventListener("click",()=>lb.close());
 lb.addEventListener("click",e=>{if(e.target===lb)lb.close()});
 lb.addEventListener("close",()=>{lbm.innerHTML="";document.querySelectorAll("video[data-auto]").forEach(v=>{const r=v.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)v.play().catch(()=>{})})});
+
+// Opened with #real etc.: show only that kind
+const fromHash=()=>{const k=location.hash.slice(1);if(KIND[k]){setKind(k);scrollTo({top:film.getBoundingClientRect().top+scrollY})}};
+addEventListener("hashchange",fromHash);fromHash();
+document.querySelectorAll("a[href^='#']").forEach(a=>{const k=a.getAttribute("href").slice(1);if(KIND[k])a.addEventListener("click",e=>{e.preventDefault();history.replaceState(null,"","#"+k);fromHash()})});
 
 // Cursor label (pointer devices only)
 if(matchMedia("(hover:hover) and (pointer:fine)").matches){const cl=$("#cl");document.addEventListener("pointermove",e=>{cl.style.left=e.clientX+"px";cl.style.top=e.clientY+"px"});document.querySelectorAll(".row,#wide figure,#reels .reel").forEach(el=>{el.addEventListener("mouseenter",()=>cl.classList.add("on"));el.addEventListener("mouseleave",()=>cl.classList.remove("on"))})}
