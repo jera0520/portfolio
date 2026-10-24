@@ -403,6 +403,7 @@ const ROWS=[
  ["송편 체험 광고 카드","광고 디자인 · 3개 국어","2026",{i:"songpyeon_card"},"하회마을 체험 인스타 광고, 한국어·영어·일본어"],
  ["문화링크협동조합 웹사이트","웹 · 6개 국어","2026",{i:"munlink_site",href:"https://munlink.co.kr"},"기획·디자인·개발·배포 직접, 6개 국어 전환"],
  ["AI한술 자료실","웹 · 기획·개발","2026",{i:"hansul_site",href:"https://jera0520.github.io/ai-hansul/"},"검색·분류·복사 버튼이 있는 AI 자료 사이트"],
+  ["경북 관광지 방문객 대시보드","데이터 시각화 · Tableau","2026",{i:"gb_tableau",pos:"0 50%",href:"https://public.tableau.com/app/profile/.35427649/viz/GyeongbukAttractionsWhoVisitsWhen/1"},"경북 주요 관광지 방문객 2023~2026 상반기. 연도를 고르면 KPI·월별 추이·시군·외국인 관광지가 함께 바뀝니다 · 샘플 · 공공데이터"],
  ["캘린더 → 슬랙·노션 자동 알림","업무 자동화","2026",{t:["매일 <b>오전 9시</b>,<br>오늘 일정이 먼저 옵니다","구글 캘린더 일정을 슬랙으로 보내고, 큰 일정은 노션 할 일에 자동으로 넣습니다. Apps Script, 매일 가동 중."]},"직접 만든 도구"],
  ["한글(HWP) 보고서 자동 작성","문서 자동화","2026",{t:["결과보고서 <b>28쪽</b>,<br>초안 <b>20분</b>","작년에 낸 한글 파일을 넣으면 같은 서식에 올해 내용을 채운 초안을 뽑습니다."]},"직접 만든 도구"],
  ["연락 감시·메신저 자동화","자동화 · Python","2026",{t:["새 문의가 올 때만,<br><b>바로</b> 알려 줍니다","휴대폰 알림을 읽어 새 연락만 골라 알리고, 맥 카카오톡 읽기·보내기를 자동으로 처리합니다."]},"직접 만든 도구"]
@@ -450,7 +451,7 @@ reels.addEventListener("scroll",navState,{passive:true});addEventListener("resiz
 // 작업 표 + 미리보기
 const pbox=$("#pbox");
 $("#rows").innerHTML=ROWS.map((r,i)=>{const [t,k,y,m]=r;const priv=m.t&&r[4].includes("비공개");return `<button class="row${priv?" priv":""}" type="button" data-i="${i}"><span class="no">${pad(i+1)}</span><span class="ti">${t}</span><span class="ty">${k}</span><span class="yr">${y}</span></button>`}).join("");
-pbox.innerHTML=ROWS.map((r,i)=>{const m=r[3];if(m.v)return `<video data-i="${i}" src="v/${m.v}.mp4" poster="v/${m.v}.jpg" muted loop playsinline preload="none"></video>`;if(m.i)return `<img data-i="${i}" src="i/${m.i}.jpg" alt="${r[0]}" loading="lazy">`;return `<div class="txt" data-i="${i}"><big>${m.t[0]}</big><small>${m.t[1]}</small></div>`}).join("");
+pbox.innerHTML=ROWS.map((r,i)=>{const m=r[3];if(m.v)return `<video data-i="${i}" src="v/${m.v}.mp4" poster="v/${m.v}.jpg" muted loop playsinline preload="none"></video>`;if(m.i)return `<img data-i="${i}" src="i/${m.i}.jpg" alt="${r[0]}" loading="lazy"${m.pos?` style="object-position:${m.pos}"`:""}>`;return `<div class="txt" data-i="${i}"><big>${m.t[0]}</big><small>${m.t[1]}</small></div>`}).join("");
 let cur=-1;
 function show(i){if(i===cur)return;cur=i;document.querySelectorAll(".row").forEach(b=>b.classList.toggle("cur",+b.dataset.i===i));pbox.querySelectorAll("[data-i]").forEach(el=>{const on=+el.dataset.i===i;el.classList.toggle("show",on);if(el.tagName==="VIDEO"){if(on){el.play().catch(()=>{})}else{el.pause()}}});$("#pt").textContent=ROWS[i][0];$("#pm").textContent=ROWS[i][4]}
 show(0);

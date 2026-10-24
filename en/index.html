@@ -394,6 +394,7 @@ const ROWS=[
  ["Kindergarten intro video (sample)","Motion · narration sync","2026",{v:"kinder_demo"},"Sample for a fictional kindergarten. Photos and text appear on the narrated words"],
  ["Rice-cake class ad cards","Ad design · KO/EN/JA","2026",{i:"songpyeon_card"},"Instagram ads for a Hahoe Village class in Korean, English and Japanese"],
  ["Culture co-op website","Web · 6 languages","2026",{i:"munlink_site",href:"https://munlink.co.kr"},"Planned, designed, built and deployed by me, with a 6-language switch"],
+  ["Gyeongbuk Attractions: Who Visits, When","Data viz · Tableau","2026",{i:"gb_tableau",pos:"0 50%",href:"https://public.tableau.com/app/profile/.35427649/viz/GyeongbukAttractionsWhoVisitsWhen/1"},"Interactive Tableau dashboard of visitors to major Gyeongbuk attractions, 2023 to H1 2026. Pick a year to update KPIs, monthly trends, top cities and where foreign visitors go · Sample · public data"],
  ["HWP (Hangul) report automation","Document automation","2026",{t:["A <b>28-page</b> report,<br>drafted in <b>20 minutes</b>","Feed in last year's HWP file and get this year's draft in the same layout."]},"My own tool"]
 ];
 
@@ -439,7 +440,7 @@ reels.addEventListener("scroll",navState,{passive:true});addEventListener("resiz
 // Index + preview
 const pbox=$("#pbox");
 $("#rows").innerHTML=ROWS.map((r,i)=>{const [t,k,y,m]=r;const priv=m.t&&r[4].includes("not shown");return `<button class="row${priv?" priv":""}" type="button" data-i="${i}"><span class="no">${pad(i+1)}</span><span class="ti">${t}</span><span class="ty">${k}</span><span class="yr">${y}</span></button>`}).join("");
-pbox.innerHTML=ROWS.map((r,i)=>{const m=r[3];if(m.v)return `<video data-i="${i}" src="../v/${m.v}.mp4" poster="../v/${m.v}.jpg" muted loop playsinline preload="none"></video>`;if(m.i)return `<img data-i="${i}" src="../i/${m.i}.jpg" alt="${r[0]}" loading="lazy">`;return `<div class="txt" data-i="${i}"><big>${m.t[0]}</big><small>${m.t[1]}</small></div>`}).join("");
+pbox.innerHTML=ROWS.map((r,i)=>{const m=r[3];if(m.v)return `<video data-i="${i}" src="../v/${m.v}.mp4" poster="../v/${m.v}.jpg" muted loop playsinline preload="none"></video>`;if(m.i)return `<img data-i="${i}" src="../i/${m.i}.jpg" alt="${r[0]}" loading="lazy"${m.pos?` style="object-position:${m.pos}"`:""}>`;return `<div class="txt" data-i="${i}"><big>${m.t[0]}</big><small>${m.t[1]}</small></div>`}).join("");
 let cur=-1;
 function show(i){if(i===cur)return;cur=i;document.querySelectorAll(".row").forEach(b=>b.classList.toggle("cur",+b.dataset.i===i));pbox.querySelectorAll("[data-i]").forEach(el=>{const on=+el.dataset.i===i;el.classList.toggle("show",on);if(el.tagName==="VIDEO"){if(on){el.play().catch(()=>{})}else{el.pause()}}});$("#pt").textContent=ROWS[i][0];$("#pm").textContent=ROWS[i][4]}
 show(0);
