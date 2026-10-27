@@ -110,6 +110,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 .film.f-real .fnote{display:block}
 .cr .kd{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;align-self:center}
 .cr .kd.real{color:var(--accent)}
+.case{display:grid;grid-template-columns:minmax(0,1fr) clamp(200px,21vw,300px);gap:clamp(22px,4vw,64px);align-items:end;margin:0 var(--pad) clamp(36px,6vh,72px);padding:clamp(20px,3vw,34px) 0;border-top:1px solid var(--fline);border-bottom:1px solid var(--fline)}
+.case .vw{display:flex;flex-wrap:wrap;gap:10px clamp(28px,5vw,80px);margin:16px 0 20px}
+.case .vw big{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(68px,10.5vw,170px);line-height:.88;letter-spacing:-.05em;color:var(--cream)}
+.case .vw big sup{font-family:var(--latin);font-style:italic;font-weight:400;color:var(--accent);font-size:.5em;vertical-align:.72em;margin-left:.03em;letter-spacing:0}
+.case .vw span{display:block;margin-top:16px;font-size:13px;color:var(--fsoft)}
+.case .d{max-width:36em;font-size:14.5px;line-height:1.65;color:var(--fsoft)}
+.case .d b{color:var(--cream);font-weight:600}
+.case ol{list-style:none;margin-top:18px;border-top:1px solid var(--fline);max-width:40em}
+.case li a{display:grid;grid-template-columns:minmax(0,1fr) auto 6.2em;gap:14px;padding:7px 0;border-bottom:1px solid var(--fline);font-size:13.5px;color:var(--cream);transition:color .2s}
+.case li a:hover{color:var(--accent)}
+.case li .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--fmute);align-self:center}
+.case li .n{font-family:var(--mono);font-size:12px;text-align:right;align-self:center}
+.case .asof{margin-top:12px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--fmute)}
+.case .reel{cursor:pointer}
 .hint .nav{display:flex;gap:20px}
 .hint .nav button{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--fmute);transition:color .2s,opacity .2s}
 .hint .nav button:hover:not(:disabled){color:var(--cream)}
@@ -220,6 +234,8 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
   .bar .c2,.bar .c4{display:none}
   .svc3{grid-template-columns:1fr 1fr;gap:12px 18px}
   .wide{grid-template-columns:1fr;gap:22px}
+  .case{grid-template-columns:1fr;align-items:start}
+  .case .reel{max-width:280px}
   .ig{grid-template-columns:1fr}
   .pvw{display:none}
   .nums{grid-template-columns:1fr 1fr}
@@ -293,8 +309,18 @@ body{word-break:normal;overflow-wrap:break-word}
     <h2><b>Video</b><br>Things that move</h2>
     <p>From real-footage edits to AI music videos. Tap any video to watch it large, with sound.</p>
   </div>
+  <div class="case rv" id="dalma" aria-label="View counts for Dalma Fishing TV edits">
+    <div>
+      <p class="lbl">CASE 01 · Fishing YouTube channel “Dalma Fishing TV” · client edits</p>
+      <div class="vw"><div><big>300K<sup>+</sup></big><span>Instagram Reel views</span></div><div><big>170K<sup>+</sup></big><span>YouTube Shorts views</span></div></div>
+      <p class="d">A one-minute short built around a commercial fishing vessel ramming the client’s boat. The collision lands in the first second, and faces on the other vessel are mosaicked. Seven of my edits are live on the channel, <b>220K+ YouTube views</b> in total.</p>
+      <ol><li><a href="https://www.youtube.com/shorts/-1PoVgFBWnU" target="_blank" rel="noopener"><span>Rammed by a fishing vessel mid-trip?!</span><span class="k">Short</span><span class="n">170K+</span></a></li><li><a href="https://www.youtube.com/shorts/zA3seGuceGo" target="_blank" rel="noopener"><span>Hairtail omori rig</span><span class="k">Short</span><span class="n">10K+</span></a></li><li><a href="https://www.youtube.com/watch?v=4X-ssOx7ZV4" target="_blank" rel="noopener"><span>200 hairtail on this one rig?</span><span class="k">9:31</span><span class="n">9,600+</span></a></li><li><a href="https://www.youtube.com/watch?v=dnmejZWYz9E" target="_blank" rel="noopener"><span>150 squid in October? For real!</span><span class="k">27:33</span><span class="n">8,500+</span></a></li><li><a href="https://www.youtube.com/shorts/ZsVwDk0iY-o" target="_blank" rel="noopener"><span>4-tier squid rig</span><span class="k">Short</span><span class="n">7,900+</span></a></li><li><a href="https://www.youtube.com/watch?v=IjX6pfrdUXY" target="_blank" rel="noopener"><span>How to run a hairtail omori rig</span><span class="k">31:23</span><span class="n">6,100+</span></a></li><li><a href="https://www.youtube.com/shorts/FWR2MWcl_p4" target="_blank" rel="noopener"><span>Haewoo light jigging rod</span><span class="k">Short</span><span class="n">2,600+</span></a></li></ol>
+      <p class="asof">As of Oct 27, 2026 · public YouTube and Instagram counts, rounded down · titles translated from Korean, each opens YouTube</p>
+    </div>
+    <figure class="reel" id="dalmaV" data-v="dalma_aggro" data-k="real" data-t="Fishing channel collision short" data-s="1:04 · 300K+ Instagram Reel views · 170K+ YouTube Shorts views (as of Oct 27, 2026)"><div class="vb"><video src="../v/dalma_aggro.mp4" poster="../v/dalma_aggro.jpg" muted loop playsinline preload="none" data-auto></video><span class="snd">▶ Play with sound</span></div><figcaption class="cr"><b>Rammed by a fishing vessel mid-trip?!</b><span class="kd real">Real footage</span><span>1:04</span></figcaption></figure>
+  </div>
   <div class="flt rv" id="flt" role="group" aria-label="Video type"></div>
-  <p class="fnote">Longer real-footage work (a 7-hour live stream cut into a 29-minute episode and 2 shorts) is client work that isn’t shown publicly. It is described in <a href="#work" data-row="3">Index 04</a>.</p>
+  <p class="fnote">Longer real-footage work (a 7-hour live stream cut to a 31-minute episode, a 6-hour stream cut to 10 minutes) is live on the client’s channel. Titles in <a href="#dalma">CASE 01</a> open YouTube.</p>
   <div class="wide rv" id="wide"></div>
   <div class="reels rv" id="reels"></div>
   <div class="hint"><span class="nav" id="rnav"><button type="button" id="rp">← Prev</button><button type="button" id="rn">Next →</button></span><span class="lbl">( 9 : 16 )</span></div>
@@ -320,7 +346,7 @@ body{word-break:normal;overflow-wrap:break-word}
 </section>
 
 <section class="nums" aria-label="Work in numbers">
-  <div class="rv"><big>7h<span class="ar">→</span>29m</big><p>A <b>7-hour live stream</b> cut into a 29-minute episode and 2 shorts, with motion graphics at 10 key moments</p></div>
+  <div class="rv"><big>300K<sup>+</sup></big><p>One <b>fishing-channel short</b> passed 300K Instagram Reel views and 170K on YouTube (as of Oct 27, 2026)</p></div>
   <div class="rv"><big>1,251</big><p><b>1,251 AI voice lines</b> synced with subtitles in a 2-hour-13-minute narrated video</p></div>
   <div class="rv"><big>8<sup>eps</sup></big><p>An <b>AI character short series</b> about Hahoe Village, in Korean and English</p></div>
   <div class="rv"><big>6<sup>languages</sup></big><p>A <b>co-op website</b> that switches between 6 languages, planned, built and deployed by me</p></div>
@@ -386,7 +412,7 @@ const ROWS=[
  ["AI character short series 「Ryuha」","AI video · 8 eps · KO/EN","2026",{v:"ryuha_03_en"},"Stories of Hahoe Village told by an AI character. Planning, script, generation and editing, all by me"],
  ["Andong Mask Dance Festival — music video parody","AI video · promo","2026",{v:"talchum_mv"},"35-second AI music video promoting a guesthouse in Hahoe Village"],
  ["AI character music video","AI video · contest","2026",{v:"mv_ai"},"Contest entry with kinetic typography"],
- ["7-hour live stream → 29-minute episode + 2 shorts","Editing · motion graphics","2026",{t:["A <b>7-hour</b> live stream<br>into a <b>29-minute</b> episode","Highlights, chapters and info cards, with emphasis effects at 10 key moments. The two shorts were rebuilt to match the client's reference format."]},"Client work · not shown publicly"],
+ ["Fishing YouTube channel edits ×7","Editing · motion graphics · shorts","2026",{t:["One short,<br><b>300K+</b> Reel views","A 7-hour live stream cut to a 31-minute episode, a 6-hour stream cut to 10 minutes, a boat collision cut to a one-minute short. Seven edits live on the channel, 220K+ YouTube views in total (as of Oct 27, 2026)."]},"Client work · see CASE 01 under Video"],
  ["2-hour-13-minute narrated video","AI voice · subtitle sync","2026",{t:["<b>1,251</b> AI voice lines,<br>synced line by line","Sponsor notes, title narration, chapter labels and grouped screens. Delivered in two versions: normal speed and 1.1×."]},"Client work · not shown publicly"],
  ["Pharmacist health-tip reel","Short-form edit","2026",{v:"pharm_reel"},"Client's on-camera video, edited · face blurred"],
  ["Hot-spring trip reels ×2","Reel edit · real footage","2026",{v:"onsen_reel_a"},"Client's travel footage cut two ways · cuts on the beat, letterbox band, satellite-map zoom"],
@@ -457,6 +483,7 @@ function go(d){pos=(pos+d+seq.length)%seq.length;openMedia(...seq[pos]());const 
 function openSeq(list,i){seq=list;pos=i;go(0)}
 function openRow(i){openSeq(ROWS.map((r,j)=>()=>rowItem(j)),i)}
 figs().forEach(f=>f.addEventListener("click",()=>{const vis=figs().filter(x=>!x.hidden);openSeq(vis.map(x=>()=>figItem(x)),vis.indexOf(f))}));
+$("#dalmaV").addEventListener("click",()=>openSeq([()=>figItem($("#dalmaV"))],0));
 $("#lbp").addEventListener("click",()=>go(-1));$("#lbn").addEventListener("click",()=>go(1));
 document.addEventListener("keydown",e=>{if(!lb.open||e.target.tagName==="VIDEO")return;if(e.key==="ArrowRight")go(1);else if(e.key==="ArrowLeft")go(-1)});
 $("#lbx").addEventListener("click",()=>lb.close());
