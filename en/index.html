@@ -162,7 +162,7 @@ dialog .in:focus{outline:none}
 .note{margin-top:18px;font-size:12.5px;color:var(--mute)}
 
 /* 숫자 */
-.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,2vw,30px);padding:0 var(--pad) clamp(56px,10vh,120px)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(30px,5vh,56px) clamp(14px,2vw,30px);padding:0 var(--pad) clamp(56px,10vh,120px)}
 .nums div{border-top:1px solid var(--ink);padding-top:14px}
 .nums big{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(44px,5.4vw,92px);line-height:.95;letter-spacing:-.05em;margin-bottom:14px}
 .nums big sup{font-size:.36em;letter-spacing:0;vertical-align:.95em;margin-left:.08em;font-weight:400}
@@ -239,7 +239,6 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
   .ig{grid-template-columns:1fr}
   .pvw{display:none}
   .nums{grid-template-columns:1fr 1fr}
-  .nums div:last-child{grid-column:1/-1}
   .svc .r{grid-template-columns:1fr;gap:10px}
   .teach{grid-template-columns:1fr}
   .cl{grid-template-columns:1fr 1fr}
@@ -249,8 +248,6 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
 @media (min-width:981px){.state{text-align:justify}}
 @media (max-width:560px){
   body{font-size:14.5px}
-  .nums div:first-child{grid-column:1/-1}
-  .nums div:last-child{grid-column:auto}
   .bar{gap:0 12px}
   .bar .c3 .t{display:none}
   .th{display:none}
@@ -306,7 +303,7 @@ body{word-break:normal;overflow-wrap:break-word}
 
 <section class="film" id="video">
   <div class="shd rv">
-    <h2><b>Video</b><br>Things that move</h2>
+    <h2><b>Video</b><br>Reels, shorts, MVs</h2>
     <p>From real-footage edits to AI music videos. Tap any video to watch it large, with sound.</p>
   </div>
   <div class="case rv" id="dalma" aria-label="View counts for Dalma Fishing TV edits">
@@ -347,6 +344,7 @@ body{word-break:normal;overflow-wrap:break-word}
 
 <section class="nums" aria-label="Work in numbers">
   <div class="rv"><big>300K<sup>+</sup></big><p>One <b>fishing-channel short</b> passed 300K Instagram Reel views and 170K on YouTube (as of Oct 27, 2026)</p></div>
+  <div class="rv"><big>7h<span class="ar">→</span>31m</big><p>A <b>7-hour live stream</b> cut into a 31-minute episode and 2 shorts, with motion graphics at 10 key moments</p></div>
   <div class="rv"><big>1,251</big><p><b>1,251 AI voice lines</b> synced with subtitles in a 2-hour-13-minute narrated video</p></div>
   <div class="rv"><big>8<sup>eps</sup></big><p>An <b>AI character short series</b> about Hahoe Village, in Korean and English</p></div>
   <div class="rv"><big>6<sup>languages</sup></big><p>A <b>co-op website</b> that switches between 6 languages, planned, built and deployed by me</p></div>

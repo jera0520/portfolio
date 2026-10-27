@@ -162,7 +162,7 @@ dialog .in:focus{outline:none}
 .note{margin-top:18px;font-size:12.5px;color:var(--mute)}
 
 /* 숫자 */
-.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,2vw,30px);padding:0 var(--pad) clamp(56px,10vh,120px)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(30px,5vh,56px) clamp(14px,2vw,30px);padding:0 var(--pad) clamp(56px,10vh,120px)}
 .nums div{border-top:1px solid var(--ink);padding-top:14px}
 .nums big{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(44px,5.4vw,92px);line-height:.95;letter-spacing:-.05em;margin-bottom:14px}
 .nums big sup{font-size:.36em;letter-spacing:0;vertical-align:.95em;margin-left:.08em;font-weight:400}
@@ -239,7 +239,6 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
   .ig{grid-template-columns:1fr}
   .pvw{display:none}
   .nums{grid-template-columns:1fr 1fr}
-  .nums div:last-child{grid-column:1/-1}
   .svc .r{grid-template-columns:1fr;gap:10px}
   .teach{grid-template-columns:1fr}
   .cl{grid-template-columns:1fr 1fr}
@@ -249,8 +248,6 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
 @media (min-width:981px){.state{text-align:justify}}
 @media (max-width:560px){
   body{font-size:14.5px}
-  .nums div:first-child{grid-column:1/-1}
-  .nums div:last-child{grid-column:auto}
   .bar{gap:0 12px}
   .bar .c3 .t{display:none}
   .th{display:none}
@@ -296,7 +293,7 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
 
 <section class="film" id="video">
   <div class="shd rv">
-    <h2><b>영상</b><br>움직이는 것들</h2>
+    <h2><b>영상</b><br>릴스·쇼츠·뮤비</h2>
     <p>실촬영 편집부터 AI 뮤직비디오까지. 화면을 누르면 크게, 소리와 함께 봅니다.</p>
   </div>
   <div class="case rv" id="dalma" aria-label="달마낚시TV 편집 영상 조회수">
@@ -336,6 +333,7 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
 
 <section class="nums" aria-label="숫자로 본 작업">
   <div class="rv"><big>30만<sup>+</sup></big><p>낚시 채널 쇼츠 한 편이 <b>인스타 릴스 30만 회</b>, 유튜브 17만 회 (2026.10.27 기준)</p></div>
+  <div class="rv"><big>7h<span class="ar">→</span>31m</big><p><b>라이브 7시간</b>을 본편 31분과 쇼츠 2편으로. 모션그래픽·강조 연출 10곳</p></div>
   <div class="rv"><big>1,251</big><p>AI 음성 <b>1,251문장</b>을 자막과 맞춘 2시간 13분 낭독 롱폼</p></div>
   <div class="rv"><big>6<sup>개 국어</sup></big><p>6개 국어로 바뀌는 <b>협동조합 웹사이트</b>를 기획부터 배포까지 직접</p></div>
   <div class="rv"><big>20<sup>분</sup></big><p>작년 한글 파일로 <b>결과보고서 28쪽</b> 초안을 뽑는 자동화</p></div>
