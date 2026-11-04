@@ -9,7 +9,7 @@
 <meta property="og:description" content="운영 중인 사이트 2곳과 업무 자동화 도구">
 <meta property="og:image" content="https://jera0520.github.io/portfolio/i/og.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#F1EDE4">
+<meta name="theme-color" content="#000000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-50 -50 100 100%27%3E%3Cpath d=%27M0-46V46M-46 0H46M-32.5-32.5 32.5 32.5M-32.5 32.5 32.5-32.5%27 stroke=%27%23DD4527%27 stroke-width=%2716%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +17,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
-  --paper:#F1EDE4;--paper2:#E8E3D7;--ink:#141312;--mute:#7A756C;--rule:rgba(20,19,18,.16);
-  --accent:#DD4527;--film:#0E0E0D;--film2:#1A1918;--cream:#EEE9DE;
-  --fmute:#8D887F;--fsoft:#A9A399;--fline:#2B2A28;--fline2:#34322F;
+  --paper:#000;--paper2:#111;--ink:#fff;--mute:#8E8E8E;--rule:rgba(255,255,255,.2);
+  --accent:#FF2D20;--film:#000;--film2:#111;--cream:#fff;
+  --fmute:#8E8E8E;--fsoft:#B4B4B4;--fline:#2A2A2A;--fline2:#333;
   --serif:"Hahmlet","Noto Serif KR",serif;--sans:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,monospace;--latin:"Instrument Serif",serif;
   --pad:clamp(16px,3.2vw,44px);
@@ -27,7 +27,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.09;mix-blend-mode:multiply;
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.05;mix-blend-mode:screen;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit;text-decoration:none}
 img,video{display:block;max-width:100%}
@@ -291,10 +291,10 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
 .wh a{font-family:var(--mono);font-size:clamp(12px,1.1vw,15px);padding-bottom:.5em;border-bottom:1px solid currentColor;white-space:nowrap;transition:color .2s}
 .wh a:hover{color:var(--accent)}
 .sh{position:relative;display:block;padding-right:clamp(40px,9vw,150px);margin-bottom:clamp(40px,8vh,84px)}
-.fr{position:relative;display:block;overflow:hidden;background:#ddd8cd;border:1px solid var(--ink)}
+.fr{position:relative;display:block;overflow:hidden;background:#111;border:1px solid var(--ink)}
 .fr img{position:absolute;left:0;top:0;width:100%;height:auto;will-change:transform}
 .fr.pc{aspect-ratio:16/8.3}
-.fr.ph{position:absolute;right:0;bottom:calc(clamp(40px,8vh,84px)*-1);width:clamp(108px,17vw,270px);aspect-ratio:9/19;border-radius:clamp(14px,1.8vw,26px);border:clamp(4px,.5vw,7px) solid #141312;box-shadow:0 18px 40px rgba(20,19,18,.28)}
+.fr.ph{position:absolute;right:0;bottom:calc(clamp(40px,8vh,84px)*-1);width:clamp(108px,17vw,270px);aspect-ratio:9/19;border-radius:clamp(14px,1.8vw,26px);border:clamp(4px,.5vw,7px) solid #2B2B2B;box-shadow:0 18px 40px rgba(20,19,18,.28)}
 .wb{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(18px,4vw,64px);padding-right:clamp(120px,20vw,310px)}
 .wb p{font-size:clamp(16px,1.35vw,19px);line-height:1.7;word-break:keep-all}
 .wb dl{display:grid;grid-template-columns:5.5em 1fr;gap:8px 14px;font-size:14px;border-top:1px solid var(--rule);padding-top:12px}
@@ -319,7 +319,7 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
 #dock button{padding:3px 8px;font-family:inherit;font-size:inherit;letter-spacing:inherit;color:var(--fsoft);transition:color .2s,background .2s}
 #dock button:hover{color:var(--cream)}
 #dock #dTour{background:var(--accent);color:#fff}
-#dock #dTour:hover{background:#c23a20;color:#fff}
+#dock #dTour:hover{background:#D42218;color:#fff}
 #dock.off>:not(#dOff){display:none}
 #dock.off{padding:4px}
 
@@ -339,6 +339,7 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
   .wh{grid-template-columns:1fr}.wh a{justify-self:start}
   .tl li{grid-template-columns:1fr}.tl span{text-align:left}
 }
+#dock{border:1px solid rgba(255,255,255,.22)}
 </style>
 </head>
 <body>
