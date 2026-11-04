@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aurea (fictional brand sample)</title>
+<meta name="description" content="A scroll site sample by Kim Jinhyeon. Aurea is a fictional apple brand and the paintings were made with AI.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1a55b8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:,">
+<link rel="preload" as="image" href="img/hero.webp" type="image/webp">
+<style>
+:root{--sky:#1a55b8;--cream:#f6efdc;--ink:#1c1206;--gold:#e0ad3c;--pad:clamp(20px,4vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--sky);-webkit-text-size-adjust:100%}
+body{font-family:"Instrument Serif",Georgia,serif;color:var(--cream);background:var(--sky);overflow-x:hidden}
+a{color:inherit}
+canvas{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+#track{position:relative;z-index:0;pointer-events:none}
+
+.bar,.note{position:fixed;left:var(--pad);right:var(--pad);z-index:5;display:flex;justify-content:space-between;align-items:baseline;gap:16px;color:var(--cream);transition:color .35s ease}
+.bar{top:max(18px,env(safe-area-inset-top));font-size:15px}
+.bar b{font-weight:400;font-size:26px;letter-spacing:-.01em;line-height:1}
+.bar a{font-family:"IBM Plex Mono",monospace;font-size:12px;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.note{bottom:max(16px,env(safe-area-inset-bottom));font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.01em;word-break:keep-all}
+.note span{background:rgba(12,18,40,.56);padding:3px 7px 4px;border-radius:2px}
+.bar a{text-shadow:0 0 10px rgba(10,20,50,.55)}
+.hint{transition:opacity .3s ease}
+
+.scene{position:fixed;z-index:3;left:var(--pad);right:var(--pad);pointer-events:none;word-break:keep-all;will-change:opacity}
+.ln{display:block;overflow:hidden;padding-bottom:.2em;margin-bottom:-.2em}
+.ln>span{display:block;will-change:transform}
+.big{font-weight:400;line-height:1;letter-spacing:-.025em}
+.mid{font-weight:400;font-size:clamp(40px,6.4vw,112px);line-height:1.02;letter-spacing:-.02em}
+.mid em{font-style:italic}
+.sub{margin-top:18px;font-size:clamp(20px,1.7vw,26px);line-height:1.3;max-width:24em}
+.ink{color:var(--ink)}
+
+#s0{top:12vh;max-width:50%}
+#s0 .mid{font-size:clamp(34px,4.9vw,84px)}
+#s0 .big{font-size:clamp(96px,15vw,260px)}
+#s1,#s2,#s3{bottom:11vh;max-width:56%}
+#s4{top:8vh;max-width:46%}
+#s4 .mid{font-size:clamp(34px,4.9vw,84px)}
+#s5{top:32vh;left:auto;right:var(--pad);width:38%}
+#s6{top:17vh;max-width:44%}
+#s6 .big{font-size:clamp(84px,12vw,210px)}
+#s6 .sub{max-width:24em}
+#s6 a{display:inline-block;margin-top:24px;padding:13px 20px 14px;background:var(--gold);color:var(--ink);text-decoration:none;font-size:20px;line-height:1;border-radius:2px;transition:background-color .2s ease,transform .2s ease}
+#s6 a:hover{background:var(--cream);transform:translateY(-2px)}
+#s6 a:focus-visible,.bar a:focus-visible{outline:2px solid var(--cream);outline-offset:3px}
+
+#stars{position:fixed;z-index:2;left:34vw;top:8vh;width:17vw;max-width:300px;overflow:visible;pointer-events:none;opacity:0}
+#stars path{fill:none;stroke:var(--cream);stroke-width:.6;stroke-opacity:.72;vector-effect:non-scaling-stroke}
+#stars use{fill:var(--cream)}
+
+@media (max-width:760px){
+  #s0{top:15vh;max-width:none}
+  #s0 .big{font-size:33vw}
+  #s1,#s2,#s3{bottom:12vh;max-width:none}
+  .mid{font-size:clamp(40px,11.5vw,56px)}
+  #s0 .mid,#s4 .mid{font-size:clamp(36px,10vw,48px)}
+  #s4{top:11vh;max-width:none}
+  #s5{top:auto;bottom:13vh;left:auto;right:var(--pad);width:auto;text-align:right}
+  #s6{top:auto;bottom:9vh;max-width:none}
+  #s6 .big{font-size:26vw}
+  #stars{left:auto;right:6vw;top:9vh;width:58vw}
+  .note span:last-child{display:none}
+}
+
+/* 움직임 줄이기, WebGL 없음: 그림과 글을 차례로 쌓아 보여 준다 */
+body.flat canvas,body.flat #stars,body.flat .hint{display:none}
+body.flat #track{display:none}
+body.flat .bar,body.flat .note{position:static;margin:0;padding:16px var(--pad)}
+body.flat .scene{position:relative;left:0!important;right:0!important;top:auto!important;bottom:auto!important;width:auto!important;max-width:none!important;text-align:left!important;padding:24px var(--pad) 48px;opacity:1!important;pointer-events:auto;color:var(--cream)}
+body.flat .scene .ink{color:var(--cream)}
+body.flat .scene img{display:block;width:calc(100% + var(--pad)*2);margin:-24px calc(var(--pad)*-1) 24px;height:auto}
+body.flat .ln>span{transform:none!important}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<header class="bar"><b>Aurea</b><a href="../../">Kim Jinhyeon portfolio</a></header>
+
+<main>
+<section class="scene" id="s0" data-img="hero" data-on="-1,-.5,.72,1.08">
+  <h1 class="big"><span class="ln"><span>Aurea</span></span></h1>
+  <p class="mid" style="margin-top:.2em"><span class="ln"><span>The fruit the gods</span></span><span class="ln"><span>fought over,</span></span><span class="ln"><span><em>grown in Andong.</em></span></span></p>
+</section>
+<section class="scene ink" id="s1" data-img="blade1" data-on="2.3,2.62,3.1,3.36" data-gold>
+  <p class="mid"><span class="ln"><span>The blade <em>touches.</em></span></span></p>
+</section>
+<section class="scene ink" id="s2" data-img="blade2" data-on="3.72,4.02,4.34,4.6" data-gold>
+  <p class="mid"><span class="ln"><span>The gold <em>gives way.</em></span></span></p>
+</section>
+<section class="scene ink" id="s3" data-img="open" data-on="5.05,5.36,5.86,6.12" data-gold>
+  <p class="mid"><span class="ln"><span>Inside, just</span></span><span class="ln"><span>a very good</span></span><span class="ln"><span><em>apple.</em></span></span></p>
+</section>
+<section class="scene" id="s4" data-img="orchard" data-on="6.85,7.15,7.86,8.16">
+  <p class="mid"><span class="ln"><span>Sun-warmed slopes</span></span><span class="ln"><span><em>above a bending river.</em></span></span></p>
+</section>
+<section class="scene" id="s5" data-img="hand" data-on="8.85,9.12,9.82,10.08">
+  <p class="mid"><span class="ln"><span>One at a time,</span></span><span class="ln"><span><em>by hand.</em></span></span></p>
+</section>
+<section class="scene" id="s6" data-img="hero" data-on="11.35,11.7,99,100" data-on-m="12.05,12.45,99,100">
+  <h2 class="big"><span class="ln"><span>Aurea</span></span></h2>
+  <p class="sub">Aurea is a made-up brand, built to show what this kind of site can do. There are no apples for sale. The paintings were made with AI. The site was made by Kim Jinhyeon.</p>
+  <a href="../../#contact">Ask about a site like this</a>
+</section>
+</main>
+
+<svg id="stars" viewBox="0 0 200 210" aria-hidden="true">
+  <defs><path id="st" d="M0-4.6C.5-1 1-.5 4.6 0 1 .5.5 1 0 4.6-.5 1-1 .5-4.6 0-1-.5-.5-1 0-4.6Z"/></defs>
+  <path id="cn" d="M100 62 C84 48 52 44 34 66 C14 92 18 142 46 176 C62 196 84 196 100 184 C116 196 138 196 154 176 C182 142 186 92 166 66 C148 44 116 48 100 62 L104 30 C118 12 144 8 164 18 C152 36 128 42 104 30"/>
+  <g id="pts"></g>
+</svg>
+
+<footer class="note"><span>Sample · Fictional brand · Paintings made with AI</span><span class="hint" id="hint">Scroll down</span></footer>
+<div id="track"></div>
+
+<script id="vs" type="x-shader">
+attribute vec2 p;varying vec2 v;
+void main(){v=vec2(p.x*.5+.5,.5-p.y*.5);gl_Position=vec4(p,0.,1.);}
+</script>
+<script id="fs" type="x-shader">
+precision highp float;
+varying vec2 v;
+uniform sampler2D A,B;
+uniform vec4 TA,TB;      // 시야 w,h 와 초점 x,y
+uniform vec2 R;          // 캔버스 픽셀
+uniform float P,V,NA,NB,T,M; // 진행, 스크롤 속도, 밤 정도(A,B), 시간, 전환 방식
+
+float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+  return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+float fbm(vec2 p){float a=.5,s=0.;for(int i=0;i<4;i++){s+=a*n(p);p=p*2.03+vec2(4.1,1.7);a*=.5;}return s/.9375;}
+
+vec2 map(vec4 t,vec2 u){return t.zw+(u-.5)*t.xy;}
+
+vec3 night(vec3 c,vec2 t,float k){
+  if(k<=0.)return c;
+  float sky=smoothstep(.12,.34,c.b-c.r);
+  float gold=smoothstep(.08,.3,c.r-c.b)*smoothstep(.3,.6,c.r);
+  float ap=1.-smoothstep(.255,.3,length((t-vec2(.7,.42))*vec2(1.78,1.)));
+  float lf=step(.6,t.x)*step(t.x,.84)*step(t.y,.17);
+  gold=max(gold,max(ap,lf));
+  vec3 dark=c*vec3(.2,.24,.44);
+  dark=mix(dark,c*vec3(.92,.74,.42),gold*.9);
+  vec3 up=mix(vec3(.012,.024,.11),vec3(.045,.075,.27),smoothstep(.1,.86,t.y));
+  up=mix(up,vec3(.46,.26,.2),smoothstep(.84,1.02,t.y)*.55);
+  vec2 g=t*vec2(178.,100.);vec2 id=floor(g);vec2 f=fract(g)-.5;
+  float r=h(id);
+  vec2 o=vec2(h(id+3.),h(id+7.))-.5;
+  float tw=.65+.35*sin(T*1.3+r*40.);
+  float st=step(.86,r)*smoothstep(.1,.0,length(f-o*.7))*tw*(1.-smoothstep(.55,.82,t.y));
+  vec2 g2=t*vec2(58.,33.);vec2 id2=floor(g2);vec2 f2=fract(g2)-.5;
+  float r2=h(id2+9.);
+  float st2=step(.84,r2)*smoothstep(.09,.0,length(f2-(vec2(h(id2+1.),h(id2+2.))-.5)*.7))*(1.-smoothstep(.5,.78,t.y));
+  up+=vec3(.95,.93,.86)*(st*.75+st2);
+  return mix(c,mix(dark,up,sky),k);
+}
+
+vec3 pic(sampler2D s,vec4 t,vec2 u,float k){
+  vec2 x=map(t,u),d=vec2(V*.012*t.x,0.);
+  vec3 c=vec3(texture2D(s,x+d).r,texture2D(s,x).g,texture2D(s,x-d).b);
+  return night(c,x,k);
+}
+
+void main(){
+  vec2 u=v;
+  vec3 c;
+  if(M<.5){
+    c=pic(A,TA,u,NA);
+  }else if(M<1.5){
+    // 점묘: 구름 모양 경계를 따라 점이 자라며 다음 그림이 드러난다
+    float cs=max(7.,min(R.x,R.y)/76.);
+    vec2 px=u*R,gi=floor(px/cs);
+    vec2 ce=(gi+.5)*cs/R;
+    float f=fbm(ce*vec2(R.x/R.y,1.)*2.2+3.7);
+    float k=smoothstep(f-.2,f+.2,P*1.42-.21);
+    float rr=length(fract(px/cs)-.5)*2.;
+    float m=1.-smoothstep(k*1.5-.09,k*1.5+.09,rr);
+    if(k<=.001)m=0.;
+    if(k>=.999)m=1.;
+    c=mix(pic(A,TA,u,NA),pic(B,TB,u,NB),m);
+  }else if(M<2.5){
+    // 타는 경계: 왼쪽 아래에서 번져 오른다
+    vec2 q=u*vec2(R.x/R.y,1.);
+    float f=fbm(q*3.1)*.62+fbm(q*17.)*.1+(1.-u.y)*-.16+u.x*.3;
+    float e=f-(P*1.32-.16);
+    c=mix(pic(B,TB,u,NB),pic(A,TA,u,NA),smoothstep(.0,.006,e));
+    float ch=smoothstep(.07,.006,e)*step(0.,e);
+    c=mix(c,c*vec3(.34,.22,.16),ch);
+    c=mix(c,vec3(.03,.015,.01),smoothstep(.024,.004,e)*step(0.,e));
+    float gl=smoothstep(.009,.0,abs(e-.0015));
+    c=mix(c,vec3(1.,.56,.14),gl*.95);
+  }else{
+    // 물감처럼 번지며 바뀐다(구도가 같은 그림끼리)
+    vec2 q=u*vec2(R.x/R.y,1.);
+    vec2 d=(vec2(fbm(q*2.6+1.),fbm(q*2.6+8.))-.5)*.05*sin(P*3.1416);
+    float f=fbm(q*11.+2.);
+    float m=smoothstep(f-.42,f+.42,P*1.84-.42);
+    c=mix(pic(A,TA,u+d*P,NA),pic(B,TB,u-d*(1.-P),NB),m);
+  }
+  c+=(h(u*R+fract(T)*91.)-.5)*.018;
+  gl_FragColor=vec4(c,1.);
+}
+</script>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const canvas=$("#gl");
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const gl=reduce?null:(canvas.getContext("webgl",{antialias:false,alpha:false,powerPreference:"high-performance"}));
+
+function flatten(){
+  document.body.classList.add("flat");
+  document.querySelectorAll(".scene").forEach(s=>{
+    const i=new Image();i.src="img/"+s.dataset.img+".webp";i.alt="";i.loading="lazy";s.prepend(i);
+  });
+}
+if(!gl){flatten();return}
+
+/* ---------- 카메라: [스크롤 단위, 확대, 초점x, 초점y, 세로화면 초점x] ---------- */
+const CAM={
+  hero:[[0,1.03,.5,.5,.45],[.95,1.1,.53,.5,.5],[1.42,1.22,.6,.48,.64],[2.5,3.5,.7,.42,.7]],
+  cut :[[1.8,1.3,.5,.5,.56],[3.2,1.12,.5,.5,.56],[5.2,1,.5,.5,.52]],
+  open:[[3,1,.5,.5,.52],[5.2,1,.5,.5,.52],[7,1.14,.5,.54,.5]],
+  orch:[[6,1.2,.4,.5,.24],[8.9,1.02,.55,.5,.46]],
+  hand:[[8,1.28,.44,.34,.55],[9.5,1.12,.42,.42,.42],[10.9,1.02,.42,.46,.4]],
+  nite:[[10,1.5,.7,.42,.7],[11.3,1.06,.56,.5,.7],[12.4,1,.5,.5,.28]]
+};
+const PICS=[["hero","hero",0],["blade1","cut",0],["blade2","cut",0],["open","open",0],["orchard","orch",0],["hand","hand",0],["hero","nite",1]];
+/* 구간: 시작, 끝, 앞 그림, 뒤 그림, 방식(1 점묘, 2 타는 경계, 3 번짐) */
+const SEG=[[1.9,2.5,0,1,1],[3.2,3.84,1,2,3],[4.4,5.1,2,3,3],[6,6.92,3,4,1],[8.1,8.92,4,5,2],[10,10.92,5,6,1]];
+const END=13.2;
+
+const ss=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t)};
+const narrow=()=>innerWidth/innerHeight<.8;
+function cam(k,t){
+  const a=CAM[k];let i=0;
+  if(t<=a[0][0])i=-1;else while(i<a.length-1&&t>=a[i+1][0])i++;
+  const nr=narrow(),p=nr?4:2,zz=z=>nr?1+(z-1)*.45:z;
+  if(i<0)return[zz(a[0][1]),a[0][p],a[0][3]];
+  if(i>=a.length-1){const e=a[a.length-1];return[zz(e[1]),e[p],e[3]]}
+  const x=a[i],y=a[i+1],f=ss(x[0],y[0],t);
+  return[zz(x[1]+(y[1]-x[1])*f),x[p]+(y[p]-x[p])*f,x[3]+(y[3]-x[3])*f];
+}
+
+/* ---------- WebGL ---------- */
+function sh(type,id){const s=gl.createShader(type);gl.shaderSource(s,$(id).textContent);gl.compileShader(s);
+  if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(s));return s}
+let prog;
+try{
+  prog=gl.createProgram();
+  gl.attachShader(prog,sh(gl.VERTEX_SHADER,"#vs"));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,"#fs"));gl.linkProgram(prog);
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(prog));
+}catch(e){console.error(e);flatten();return}
+gl.useProgram(prog);
+gl.bindBuffer(gl.ARRAY_BUFFER,gl.createBuffer());
+gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+gl.enableVertexAttribArray(0);gl.bindAttribLocation(prog,0,"p");gl.linkProgram(prog);gl.useProgram(prog);
+gl.vertexAttribPointer(gl.getAttribLocation(prog,"p"),2,gl.FLOAT,false,0,0);
+gl.enableVertexAttribArray(gl.getAttribLocation(prog,"p"));
+const U={};["A","B","TA","TB","R","P","V","NA","NB","T","M"].forEach(n=>U[n]=gl.getUniformLocation(prog,n));
+gl.uniform1i(U.A,0);gl.uniform1i(U.B,1);
+
+const TEX={};const ASPECT=1680/944;
+function load(name){
+  return new Promise(res=>{
+    const im=new Image();im.decoding="async";im.src="img/"+name+".webp";
+    im.onload=async()=>{
+      try{await im.decode()}catch(e){}
+      const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+      gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,im);
+      TEX[name]=t;res();
+    };
+    im.onerror=()=>res();
+  });
+}
+(async()=>{await load("hero");for(const n of["blade1","blade2","open","orchard","hand"])await load(n)})();
+
+function view(k,t){
+  const[z,fx,fy]=cam(k,t);
+  const s=canvas.width/canvas.height;
+  let w=Math.min(1,s/ASPECT)/z,h=Math.min(1,ASPECT/s)/z;
+  const cx=Math.min(1-w/2,Math.max(w/2,fx)),cy=Math.min(1-h/2,Math.max(h/2,fy));
+  return[w,h,cx,cy];
+}
+function size(){
+  const d=Math.min(devicePixelRatio||1,innerWidth<760?1.6:1.5);
+  const w=Math.round(innerWidth*d),h=Math.round(innerHeight*d);
+  if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h);gl.uniform2f(U.R,w,h)}
+}
+
+/* ---------- 글 ---------- */
+const SC=[...document.querySelectorAll(".scene")].map(el=>{
+  const[a,b,c,d]=((narrow()&&el.dataset.onM)||el.dataset.on).split(",").map(Number);
+  return{el,a,b,c,d,lines:[...el.querySelectorAll(".ln>span")],gold:"gold"in el.dataset,rest:[...el.querySelectorAll(".sub,a")]};
+});
+const pts=$("#pts"),cn=$("#cn"),starsEl=$("#stars");
+const STAR=[[100,62],[52,50],[20,96],[34,152],[70,190],[100,184],[132,190],[168,150],[182,92],[148,50],[104,30],[136,14],[164,18]];
+STAR.forEach(([x,y],i)=>{const u=document.createElementNS("http://www.w3.org/2000/svg","use");
+  u.setAttribute("href","#st");u.setAttribute("transform",`translate(${x} ${y}) scale(${i%3?1:1.45})`);u.style.opacity=0;pts.appendChild(u)});
+const LEN=cn.getTotalLength();cn.style.strokeDasharray=LEN;cn.style.strokeDashoffset=LEN;
+const STARU=[...pts.children];
+
+function text(t){
+  let gold=false;
+  for(const s of SC){
+    const inn=ss(s.a,s.b,t),out=1-ss(s.c,s.d,t),o=Math.min(inn,out);
+    s.el.style.opacity=o>.001?1:0;
+    s.el.style.visibility=o>.001?"visible":"hidden";
+    s.el.style.pointerEvents=o>.9?"auto":"none";
+    s.lines.forEach((l,i)=>{
+      const k=Math.max(0,Math.min(1,o*1.22-i*.11));
+      l.style.transform=`translateY(${(1-k)*112}%)`;
+    });
+    s.rest.forEach(r=>{r.style.opacity=ss(.55,1,o);r.style.transform=`translateY(${(1-o)*14}px)`});
+    if(s.gold&&o>.2)gold=true;
+  }
+  if(t>2.15&&t<6.3)gold=true;
+  document.body.classList.toggle("on-gold",gold);
+  $("#hint").style.opacity=t<.3?1:0;
+  const sh=narrow()?.75:0,d=ss(11.5+sh,12.7+sh*.5,t);
+  starsEl.style.opacity=ss(11.25+sh,11.6+sh,t);
+  cn.style.strokeDashoffset=LEN*(1-d);
+  STARU.forEach((u,i)=>u.style.opacity=ss(i/STARU.length*.9,i/STARU.length*.9+.12,d));
+}
+
+/* ---------- 스크롤 ---------- */
+const track=$("#track");
+function layout(){track.style.height=(END+1)*innerHeight+"px"}
+let cur=scrollY/innerHeight,vel=0,last=performance.now(),lastDraw=-1;
+function frame(now){
+  requestAnimationFrame(frame);
+  size();
+  const tgt=Math.min(END,scrollY/innerHeight);
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  const prev=cur;
+  cur+=(tgt-cur)*(1-Math.exp(-dt*6.5));
+  if(Math.abs(tgt-cur)<.0004)cur=tgt;
+  vel+=(((cur-prev)/Math.max(dt,.008))-vel)*.18;
+  const t=cur;
+
+  let sa,sb=null,p=0,m=0;
+  const seg=SEG.find(s=>t>=s[0]&&t<=s[1]);
+  if(seg){sa=PICS[seg[2]];sb=PICS[seg[3]];p=(t-seg[0])/(seg[1]-seg[0]);m=seg[4]}
+  else{let i=0;for(const s of SEG)if(t>s[1])i=s[3];sa=PICS[i]}
+  if(sb&&!TEX[sb[0]]){sb=null;m=0}
+  if(!TEX[sa[0]]){sa=PICS.find(x=>TEX[x[0]]&&x[2]===0);if(!sa)return}
+
+  gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,TEX[sa[0]]);
+  const ta=view(sa[1],t);gl.uniform4f(U.TA,ta[0],ta[1],ta[2],ta[3]);gl.uniform1f(U.NA,sa[2]);
+  if(sb){gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,TEX[sb[0]]);
+    const tb=view(sb[1],t);gl.uniform4f(U.TB,tb[0],tb[1],tb[2],tb[3]);gl.uniform1f(U.NB,sb[2])}
+  gl.uniform1f(U.P,p);gl.uniform1f(U.M,m);
+  gl.uniform1f(U.V,Math.max(-1,Math.min(1,vel*.55)));
+  gl.uniform1f(U.T,now/1000);
+  gl.drawArrays(gl.TRIANGLES,0,3);
+  if(Math.abs(t-lastDraw)>.0002){text(t);lastDraw=t}
+}
+addEventListener("resize",()=>{layout();lastDraw=-1});
+layout();size();text(cur);
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
