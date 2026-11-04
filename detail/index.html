@@ -33,7 +33,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* 위 막대 */
-.bar{position:sticky;top:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);gap:0 clamp(10px,2vw,28px);padding:14px var(--pad) 0;background:linear-gradient(var(--paper) 72%,transparent)}
+.bar{position:sticky;top:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);gap:0 clamp(10px,2vw,28px);padding:14px var(--pad) 0;background:var(--paper)}
 .bar>*{display:block;padding-bottom:9px;border-bottom:1px solid var(--rule);font-size:12px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bar b{font-weight:700;letter-spacing:-.01em}
 .bar .t{font-family:var(--mono);font-size:11.5px}
@@ -80,10 +80,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 .wh h2{font-weight:900;font-size:clamp(34px,6vw,104px);line-height:1;letter-spacing:-.06em}
 .wh button{font-family:var(--mono);font-size:clamp(12px,1.1vw,15px);padding-bottom:.5em;border-bottom:1px solid currentColor;white-space:nowrap;transition:color .2s}
 .wh button:hover{color:var(--accent)}
-.kan{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,1vw,14px);align-items:start;margin-bottom:clamp(36px,7vh,72px)}
-.kan button{display:block;width:100%;background:#111;outline:1px solid transparent;outline-offset:3px;transition:outline-color .2s}
-.kan button:hover,.kan button:focus-visible{outline-color:var(--accent)}
-.kan img{width:100%;height:auto}
+.gr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(6px,.8vw,12px);margin-bottom:12px}
+.gr button{display:block;width:100%;aspect-ratio:1;overflow:hidden;background:#111}
+.gr .big{grid-column:span 2;grid-row:span 2;height:100%;aspect-ratio:auto}
+.gr.r .big{grid-column:3/5;grid-row:1/3}
+.gr img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.gr button:hover img{transform:scale(1.03)}
+.gr button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .wb{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(18px,4vw,64px)}
 .wb p{font-size:clamp(16px,1.35vw,19px);line-height:1.7}
 .wb dl{display:grid;grid-template-columns:5.5em 1fr;gap:8px 14px;font-size:14px;border-top:1px solid var(--rule);padding-top:12px}
@@ -115,6 +118,7 @@ dialog[open]{display:flex;flex-direction:column}
 .vh span{grid-column:1;font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--mute)}
 .vh button{grid-column:2;grid-row:1/3;font-family:var(--mono);font-size:13px;padding:8px 12px;border:1px solid var(--rule);transition:color .2s,border-color .2s}
 .vh button:hover{color:var(--accent);border-color:var(--accent)}
+.vb:focus{outline:none}
 .vb{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 .pg{width:100%;max-width:780px;margin:0 auto}
 .pg img{width:100%;height:auto;background:#111}
@@ -131,9 +135,8 @@ dialog[open]{display:flex;flex-direction:column}
 @media (max-width:760px){
   .name{font-size:clamp(60px,18vw,110px)}
   .wh{grid-template-columns:1fr}.wh button{justify-self:start}
-  .kan{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:calc(var(--pad) * -1);margin-right:calc(var(--pad) * -1);padding:0 var(--pad) 4px;scroll-padding-inline:var(--pad);scrollbar-width:none}
-  .kan::-webkit-scrollbar{display:none}
-  .kan button{flex:0 0 68vw;scroll-snap-align:start}
+  .gr{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gr .big,.gr.r .big{grid-column:1/-1;grid-row:auto;height:auto;aspect-ratio:1}
   .wb{grid-template-columns:1fr}
 }
 @media (max-width:560px){
@@ -179,43 +182,46 @@ dialog[open]{display:flex;flex-direction:column}
 
 <div class="marq" aria-hidden="true"><div class="tr" id="mq"></div></div>
 
-<section class="work" id="w1" data-work="socks" data-title="겨울 기모 양말">
-  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 2026 · 브랜드 이름은 가림 · 사진은 AI로 만듦</span><h2>겨울 기모 양말</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
-  <div class="kan" role="group" aria-label="겨울 기모 양말 상세페이지 칸">
-    <button type="button" data-at="01"><img loading="lazy" src="img/socks/01.webp" width="780" height="1502" alt="첫 화면, 기모 양말을 접어 안감을 보여 주는 착용 사진"></button>
-    <button type="button" data-at="03"><img loading="lazy" src="img/socks/03.webp" width="780" height="1613" alt="겨울 양말의 아쉬운 점을 말풍선으로 묻는 칸"></button>
-    <button type="button" data-at="04"><img loading="lazy" src="img/socks/04.webp" width="780" height="2202" alt="제품 사진과 네 가지 특징 목록"></button>
-    <button type="button" data-at="07"><img loading="lazy" src="img/socks/07.webp" width="780" height="2827" alt="밴드를 양손으로 늘린 사진과 신은 사진"></button>
-    <button type="button" data-at="11"><img loading="lazy" src="img/socks/11.webp" width="780" height="1835" alt="양말 입구와 밴드를 가까이 찍은 디테일 칸"></button>
+<section class="work" id="w1" data-work="socks" data-title="겨울 기모 양말" data-sub="브랜드 이름 가림 · 사진은 AI로 만듦">
+  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 브랜드 이름 가림 · 사진은 AI로 만듦</span><h2>겨울 기모 양말</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
+  <div class="gr" role="group" aria-label="겨울 기모 양말 상세페이지 사진">
+    <button type="button" class="big" data-at="01"><img loading="lazy" src="img/tiles/socks-1.webp" width="1100" height="1100" alt="접은 기모 안감이 보이는 흰 양말 착용 사진"></button>
+    <button type="button" data-at="05"><img loading="lazy" src="img/tiles/socks-2.webp" width="640" height="640" alt="발바닥에 온기를 표시한 검정 양말 사진"></button>
+    <button type="button" data-at="06"><img loading="lazy" src="img/tiles/socks-3.webp" width="640" height="640" alt="검정 양말의 기모 안감을 원으로 키워 보여 주는 사진"></button>
+    <button type="button" data-at="07"><img loading="lazy" src="img/tiles/socks-4.webp" width="640" height="640" alt="흰 양말 밴드를 양손으로 늘린 사진"></button>
+    <button type="button" data-at="04"><img loading="lazy" src="img/tiles/socks-5.webp" width="640" height="640" alt="접힌 흰 양말과 검정 양말을 나란히 놓은 사진"></button>
   </div>
-  <div class="wb"><p>쿠팡에 올릴 남성용 겨울 양말입니다. 얇은 양말을 신을 때 겪는 불편을 먼저 묻고, 기모 안감과 밴드를 차례로 보여 줍니다. 두께는 말로 설명하지 않고 손에 쥔 사진과 얇은 양말을 나란히 둔 사진으로 보여 줍니다. 칸을 누르면 그 자리부터 전체 페이지가 열립니다.</p>
+  <p class="lbl hintk">사진을 누르면 그 칸부터 전체 페이지가 열립니다</p>
+  <div class="wb"><p>오픈마켓에 올릴 남성용 겨울 양말입니다. 얇은 양말을 신을 때 겪는 불편을 먼저 묻고, 기모 안감과 밴드를 차례로 보여 줍니다. 두께는 손에 쥔 사진과 얇은 양말을 나란히 둔 사진으로 보여 줍니다.</p>
   <dl><dt>맡은 일</dt><dd>칸 구성, 문구, 사진 지시, 디자인</dd><dt>사진</dt><dd>의뢰인이 준 실물 사진을 참고해 AI로 만듦</dd><dt>납품</dt><dd>폭 780px, 세로로 나눈 PNG 6장</dd><dt>공개판</dt><dd>브랜드 이름을 지우고, 판매처·상품 고시·저작권 칸을 뺐습니다. 의뢰인 허락을 받아 올렸습니다.</dd></dl></div>
 </section>
 
-<section class="work" id="w2" data-work="legwarmer" data-title="발토시 레그워머">
-  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 2026 · 브랜드 이름은 가림 · 사진은 AI로 만듦</span><h2>발토시 레그워머</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
-  <div class="kan" role="group" aria-label="발토시 레그워머 상세페이지 칸">
-    <button type="button" data-at="01"><img loading="lazy" src="img/legwarmer/01.webp" width="780" height="1477" alt="첫 화면, 발토시를 신은 다리와 1+1 표시"></button>
-    <button type="button" data-at="02"><img loading="lazy" src="img/legwarmer/02.webp" width="780" height="1325" alt="제품 두 개를 놓은 사진과 세 가지 특징 아이콘"></button>
-    <button type="button" data-at="05"><img loading="lazy" src="img/legwarmer/05.webp" width="780" height="1540" alt="첫 번째 포인트, 융털 안감을 가까이 찍은 사진"></button>
-    <button type="button" data-at="11"><img loading="lazy" src="img/legwarmer/11.webp" width="780" height="1499" alt="착용 사진 위에 부위별 디테일을 표시한 칸"></button>
-    <button type="button" data-at="13"><img loading="lazy" src="img/legwarmer/13.webp" width="780" height="2409" alt="세 단계 착용 방법 사진"></button>
+<section class="work" id="w2" data-work="legwarmer" data-title="발토시 레그워머" data-sub="브랜드 이름 가림 · 사진은 AI로 만듦">
+  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 브랜드 이름 가림 · 사진은 AI로 만듦</span><h2>발토시 레그워머</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
+  <div class="gr r" role="group" aria-label="발토시 레그워머 상세페이지 사진">
+    <button type="button" class="big" data-at="01"><img loading="lazy" src="img/tiles/legwarmer-1.webp" width="1100" height="1100" alt="발토시를 신은 다리와 안감 표시, 1+1 표시"></button>
+    <button type="button" data-at="06"><img loading="lazy" src="img/tiles/legwarmer-2.webp" width="640" height="640" alt="침대에 앉아 발토시를 신은 사진"></button>
+    <button type="button" data-at="05"><img loading="lazy" src="img/tiles/legwarmer-3.webp" width="640" height="640" alt="발토시 융털 안감을 가까이 본 사진"></button>
+    <button type="button" data-at="10"><img loading="lazy" src="img/tiles/legwarmer-4.webp" width="640" height="640" alt="무릎 위 기모 마감 단을 손으로 잡은 사진"></button>
+    <button type="button" data-at="02"><img loading="lazy" src="img/tiles/legwarmer-5.webp" width="640" height="640" alt="발토시 두 개를 놓은 제품 사진"></button>
   </div>
-  <div class="wb"><p>시린 종아리와 무릎을 덮는 발토시입니다. 쓸 일이 바로 떠오르도록 착용 전후 사진을 앞에 두고, 포인트 여섯 가지를 한 칸씩 풀었습니다. 처음 쓰는 사람을 위해 신는 순서도 세 장의 사진으로 넣었습니다. 시작할 때 상위 판매자 12곳의 페이지를 모아 어떤 사진을 쓰는지 세어 봤습니다.</p>
-  <dl><dt>맡은 일</dt><dd>시장조사, 칸 구성, 문구, 사진 지시, 디자인</dd><dt>사진</dt><dd>의뢰인이 준 실물 사진을 참고해 AI로 만듦</dd><dt>납품</dt><dd>폭 860px와 780px 두 벌</dd><dt>공개판</dt><dd>브랜드 이름을 지우고, 판매처·후기·상품 고시·저작권 칸을 뺐습니다. 의뢰인 허락을 받아 올렸습니다.</dd></dl></div>
+  <p class="lbl hintk">사진을 누르면 그 칸부터 전체 페이지가 열립니다</p>
+  <div class="wb"><p>시린 종아리와 무릎을 덮는 발토시입니다. 쓸 일이 바로 떠오르도록 착용 전후 사진을 앞에 두고, 포인트 여섯 가지를 한 칸씩 풀었습니다. 처음 쓰는 사람을 위해 신는 순서도 세 장의 사진으로 넣었습니다. 상위 판매자 12곳의 페이지를 모아 어떤 사진을 쓰는지 세어 보고 반영했습니다.</p>
+  <dl><dt>맡은 일</dt><dd>시장조사, 칸 구성, 문구, 사진 지시, 디자인</dd><dt>사진</dt><dd>의뢰인이 준 실물 사진을 참고해 AI로 만듦</dd><dt>납품</dt><dd>폭 860px와 780px 두 벌</dd><dt>공개판</dt><dd>브랜드 이름을 지우고, 판매처·후기·착용 컷·추천·자주 묻는 질문·상품 고시·저작권 칸을 뺐습니다. 의뢰인 허락을 받아 올렸습니다.</dd></dl></div>
 </section>
 
-<section class="work" id="w3" data-work="balaclava" data-title="니트 바라클라바">
-  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 2026 · 브랜드 이름은 가림 · 사진은 AI로 만듦</span><h2>니트 바라클라바</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
-  <div class="kan" role="group" aria-label="니트 바라클라바 상세페이지 칸">
-    <button type="button" data-at="01"><img loading="lazy" src="img/balaclava/01.webp" width="780" height="1485" alt="첫 화면, 크림색 바라클라바를 쓴 모델 사진"></button>
-    <button type="button" data-at="04"><img loading="lazy" src="img/balaclava/04.webp" width="780" height="1771" alt="겨울 외출 준비를 표로 비교한 어두운 칸"></button>
-    <button type="button" data-at="08"><img loading="lazy" src="img/balaclava/08.webp" width="780" height="2032" alt="제품 사진에 부위 번호를 붙인 구조 설명 칸"></button>
-    <button type="button" data-at="12"><img loading="lazy" src="img/balaclava/12.webp" width="780" height="2462" alt="세 단계 착용 방법 사진"></button>
-    <button type="button" data-at="15"><img loading="lazy" src="img/balaclava/15.webp" width="780" height="2447" alt="바닷가와 벽돌 골목에서 찍은 크림색 착용 사진"></button>
+<section class="work" id="w3" data-work="balaclava" data-title="니트 바라클라바" data-sub="브랜드 이름 가림 · 사진은 AI로 만듦">
+  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 브랜드 이름 가림 · 사진은 AI로 만듦</span><h2>니트 바라클라바</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
+  <div class="gr" role="group" aria-label="니트 바라클라바 상세페이지 사진">
+    <button type="button" class="big" data-at="06"><img loading="lazy" src="img/tiles/balaclava-1.webp" width="1100" height="1100" alt="눈 오는 거리에서 크림색 바라클라바를 쓴 인물 사진"></button>
+    <button type="button" data-at="14"><img loading="lazy" src="img/tiles/balaclava-2.webp" width="640" height="640" alt="바닷가를 배경으로 크림색 바라클라바를 쓴 인물 사진"></button>
+    <button type="button" data-at="15"><img loading="lazy" src="img/tiles/balaclava-3.webp" width="640" height="640" alt="밤거리를 배경으로 검정 바라클라바를 쓴 인물 사진"></button>
+    <button type="button" data-at="01"><img loading="lazy" src="img/tiles/balaclava-4.webp" width="640" height="640" alt="크림색 후드를 쓰고 웃는 인물 사진"></button>
+    <button type="button" data-at="09"><img loading="lazy" src="img/tiles/balaclava-5.webp" width="640" height="640" alt="크림색과 검정 니트 결을 겹쳐 놓은 사진"></button>
   </div>
-  <div class="wb"><p>머리부터 목까지 한 번에 덮는 니트 후드입니다. 낯선 제품이라 부위마다 번호를 붙여 구조부터 설명하고, 쓰는 법과 단추로 핏을 고르는 법을 사진으로 보여 줍니다. 크림화이트와 블랙은 색마다 어울리는 장소를 따로 잡았고, 같은 모델 얼굴로 맞췄습니다.</p>
-  <dl><dt>맡은 일</dt><dd>시장조사, 칸 구성, 문구, 사진 지시, 디자인</dd><dt>사진</dt><dd>의뢰인이 준 실물·착용 사진을 바탕으로 AI로 만듦</dd><dt>납품</dt><dd>폭 860px와 780px 두 벌</dd><dt>공개판</dt><dd>브랜드 이름을 지우고, 판매처·후기·상품 고시·저작권·브랜드 소개 칸을 뺐습니다. 의뢰인 허락을 받아 올렸습니다.</dd></dl></div>
+  <p class="lbl hintk">사진을 누르면 그 칸부터 전체 페이지가 열립니다</p>
+  <div class="wb"><p>머리부터 목까지 한 번에 덮는 니트 후드입니다. 낯선 제품이라 부위마다 번호를 붙여 구조부터 설명하고, 쓰는 법과 단추로 핏을 고르는 법을 사진으로 보여 줍니다. 크림화이트와 블랙은 색마다 어울리는 장소를 따로 잡았고, 같은 얼굴로 맞췄습니다.</p>
+  <dl><dt>맡은 일</dt><dd>시장조사, 칸 구성, 문구, 사진 지시, 디자인</dd><dt>사진</dt><dd>의뢰인이 준 실물·착용 사진을 바탕으로 AI로 만듦</dd><dt>납품</dt><dd>폭 860px와 780px 두 벌</dd><dt>공개판</dt><dd>브랜드 이름을 지우고, 판매처·후기·착용 컷·두께 비교·상품 고시·저작권·브랜드 소개 칸을 뺐습니다. 의뢰인 허락을 받아 올렸습니다.</dd></dl></div>
 </section>
 
 <section class="how" id="how">
@@ -242,7 +248,7 @@ dialog[open]{display:flex;flex-direction:column}
 </section>
 
 <dialog id="viewer" aria-labelledby="vt">
-  <div class="vh"><b id="vt"></b><span>브랜드 이름은 가림 · 사진은 AI로 만듦</span><button type="button" id="vx">닫기 ✕</button></div>
+  <div class="vh"><b id="vt"></b><span id="vs"></span><button type="button" id="vx">닫기 ✕</button></div>
   <div class="vb" id="vb" tabindex="-1"><div class="pg" id="pg"></div><p class="ve" id="ve"></p></div>
 </dialog>
 
@@ -250,7 +256,7 @@ dialog[open]{display:flex;flex-direction:column}
 const $=s=>document.querySelector(s);
 const fmt=new Intl.DateTimeFormat("ko-KR",{timeZone:"Asia/Seoul",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});
 const tick=()=>{$("#clock").textContent=fmt.format(new Date())};tick();setInterval(tick,1000);
-const words=["칸 구성","문구","사진","디자인","시장조사","860px","780px","PDF 확인본"];
+const words=["칸 구성","문구","사진","디자인","시장조사","860px","780px","확인용 PDF"];
 const one=words.map(w=>`${w}<i><svg class="ast"><use href="#ast"/></svg></i>`).join("");
 $("#mq").innerHTML=`<span>${one}</span><span>${one}</span>`;
 
@@ -258,18 +264,19 @@ $("#mq").innerHTML=`<span>${one}</span><span>${one}</span>`;
 const H={
   socks:[1502,1619,1613,2202,1964,3699,2827,1868,2329,1364,1835,1535,1300,1148,2304],
   legwarmer:[1477,1325,927,346,1540,1348,1641,1396,1382,1426,1499,1331,2409,887,343],
-  balaclava:[1485,1457,1481,1771,1359,1503,1563,2032,1171,1104,1942,2462,1196,1430,2447,2447,1454,1171,1681,1321,1059,485,794]
+  balaclava:[1403,1456,1481,1771,1359,1503,1563,2032,1171,1104,2462,1196,1430,2447,2447,1454,1171,1681,1321,1059,484,795]
 };
 const NOTE={
   socks:"납품한 페이지에서 브랜드 이름을 지우고 판매처·상품 고시·저작권 칸을 뺀 공개판입니다.",
-  legwarmer:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·상품 고시·저작권 칸을 뺀 공개판입니다.",
-  balaclava:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·상품 고시·저작권·브랜드 소개 칸을 뺀 공개판입니다."
+  legwarmer:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·착용 컷·추천·자주 묻는 질문·상품 고시·저작권 칸을 뺀 공개판입니다.",
+  balaclava:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·착용 컷·두께 비교·상품 고시·저작권·브랜드 소개 칸을 뺀 공개판입니다."
 };
 const v=$("#viewer"),pg=$("#pg"),vb=$("#vb");
 const pad=n=>String(n).padStart(2,"0");
 function openWork(sec,at){
   const w=sec.dataset.work;
   $("#vt").textContent=sec.dataset.title+" 전체 페이지";
+  $("#vs").textContent=sec.dataset.sub;
   $("#ve").textContent=NOTE[w];
   if(pg.dataset.w!==w){
     pg.dataset.w=w;
