@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>김진현 상세페이지 포트폴리오</title>
+<meta name="description" content="실제로 납품한 겨울 제품 상세페이지 세 편입니다. 칸 구성, 문구, 사진, 디자인까지 혼자 만듭니다. 재택으로 전국 작업합니다.">
+<meta property="og:title" content="김진현 상세페이지 포트폴리오">
+<meta property="og:description" content="실제로 납품한 겨울 제품 상세페이지 세 편">
+<meta property="og:image" content="https://jera0520.github.io/portfolio/i/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-50 -50 100 100%27%3E%3Cpath d=%27M0-46V46M-46 0H46M-32.5-32.5 32.5 32.5M-32.5 32.5 32.5-32.5%27 stroke=%27%23DD4527%27 stroke-width=%2716%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --paper:#000;--paper2:#111;--ink:#fff;--mute:#8E8E8E;--soft:#B4B4B4;--rule:rgba(255,255,255,.2);--accent:#FF2D20;
+  --serif:"Hahmlet","Noto Serif KR",serif;--sans:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;--pad:clamp(16px,3.2vw,44px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html.lock{overflow:hidden}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;word-break:keep-all;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-align:left}
+.lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mute)}
+.ast{display:inline-block;flex:none;fill:none;stroke:currentColor;stroke-width:10;overflow:visible}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* 위 막대 */
+.bar{position:sticky;top:0;z-index:40;display:grid;grid-template-columns:repeat(5,1fr);gap:0 clamp(10px,2vw,28px);padding:14px var(--pad) 0;background:linear-gradient(var(--paper) 72%,transparent)}
+.bar>*{display:block;padding-bottom:9px;border-bottom:1px solid var(--rule);font-size:12px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar b{font-weight:700;letter-spacing:-.01em}
+.bar .t{font-family:var(--mono);font-size:11.5px}
+.bar .on .ast{width:10px;height:10px;margin-right:7px;vertical-align:-1px;color:var(--accent);stroke-width:15;animation:spin 7s linear infinite}
+.bar a:hover{color:var(--accent)}
+.bar a.go{text-align:right}
+
+/* 첫 화면 */
+.hero{min-height:calc(100svh - 48px);display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr auto;padding:clamp(28px,6vh,72px) var(--pad) 0}
+.hero .cap{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.hero .cap .lbl b{color:var(--ink);font-weight:500}
+.state{align-self:center;max-width:1500px;font-family:var(--serif);font-weight:250;font-size:clamp(29px,4.45vw,84px);line-height:1.1;letter-spacing:-.025em;margin:clamp(22px,4vh,52px) 0}
+.state strong{font-family:var(--sans);font-weight:900;letter-spacing:-.05em}
+.state em{font-style:normal;color:var(--accent)}
+.state .ast{width:.66em;height:.66em;margin-right:.2em;vertical-align:-.03em;color:var(--accent);stroke-width:13;animation:spin 16s linear infinite}
+.svc3{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,28px);font-size:13px;line-height:1.5;color:var(--mute);margin-bottom:clamp(18px,3vh,30px)}
+.svc3 span b{display:block;color:var(--ink);font-weight:700;font-size:13px}
+.name{display:flex;align-items:flex-end;gap:.07em;font-family:var(--serif);font-weight:800;font-size:clamp(70px,15.6vw,300px);line-height:.78;letter-spacing:-.065em;margin:0 calc(var(--pad) * -.15);padding-bottom:.11em;white-space:nowrap}
+.name .s{display:inline-block}
+.name .clip{flex:1 1 0;width:0;min-width:.7em;height:.6em;align-self:center;overflow:hidden;transform:translateY(-.02em)}
+.name .cols{display:flex;gap:.03em;height:100%}
+.name .col{flex:1 1 0;min-width:0;height:100%;overflow:hidden}
+.name .tr{display:block;animation:up 120s linear infinite}
+.name .col:nth-child(2) .tr{animation-direction:reverse;animation-duration:150s}
+.name .col:nth-child(3) .tr{animation-duration:135s;animation-delay:-40s}
+.name .tr img{width:100%;height:auto}
+@keyframes up{to{transform:translateY(-50%)}}
+@keyframes pan{to{transform:translateX(-50%)}}
+.foot{display:flex;justify-content:space-between;gap:16px;padding:12px 0 18px;border-top:1px solid var(--rule);margin-top:6px}
+.foot a:hover{color:var(--accent)}
+
+/* 띠 */
+.marq{overflow:hidden;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);background:var(--paper2)}
+.marq .tr{display:flex;width:max-content;animation:pan 46s linear infinite}
+.marq span{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.6vw,34px);padding:12px 0;white-space:nowrap}
+.marq span i{font-style:normal;color:var(--accent);margin:0 .8em}
+.marq .ast{width:.52em;height:.52em;vertical-align:.02em;stroke-width:8}
+
+/* 작업 */
+.work{padding:clamp(56px,10vh,110px) var(--pad);border-top:1px solid var(--rule)}
+.wh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;align-items:end;margin-bottom:clamp(18px,4vh,34px)}
+.wh .n{grid-column:1/-1;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--mute)}
+.wh .n i{font-style:normal;color:var(--accent)}
+.wh h2{font-weight:900;font-size:clamp(34px,6vw,104px);line-height:1;letter-spacing:-.06em}
+.wh button{font-family:var(--mono);font-size:clamp(12px,1.1vw,15px);padding-bottom:.5em;border-bottom:1px solid currentColor;white-space:nowrap;transition:color .2s}
+.wh button:hover{color:var(--accent)}
+.kan{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,1vw,14px);align-items:start;margin-bottom:clamp(36px,7vh,72px)}
+.kan button{display:block;width:100%;background:#111;outline:1px solid transparent;outline-offset:3px;transition:outline-color .2s}
+.kan button:hover,.kan button:focus-visible{outline-color:var(--accent)}
+.kan img{width:100%;height:auto}
+.wb{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(18px,4vw,64px)}
+.wb p{font-size:clamp(16px,1.35vw,19px);line-height:1.7}
+.wb dl{display:grid;grid-template-columns:5.5em 1fr;gap:8px 14px;font-size:14px;border-top:1px solid var(--rule);padding-top:12px}
+.wb dt{font-weight:700}.wb dd{color:var(--mute)}
+
+/* 일하는 방식 */
+.how{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(18px,4vw,64px);padding:clamp(56px,10vh,110px) var(--pad);border-top:1px solid var(--rule)}
+.how h2,.contact h2{font-family:var(--serif);font-weight:300;font-size:clamp(46px,8vw,150px);line-height:.95;letter-spacing:-.05em}
+.how h2 b{font-family:var(--sans);font-weight:900;letter-spacing:-.06em}
+.how h2 em,.contact h2 em{font-style:normal;color:var(--accent)}
+.how p{font-size:clamp(16px,1.35vw,19px);line-height:1.7;margin-bottom:22px}
+.how dl{display:grid;grid-template-columns:7em 1fr;gap:10px 14px;font-size:14px;border-top:1px solid var(--rule);padding-top:12px}
+.how dt{font-weight:700}.how dd{color:var(--mute)}
+
+/* 연락 */
+.contact{padding:clamp(56px,10vh,110px) var(--pad) 28px;border-top:1px solid var(--rule)}
+.cl{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);margin:clamp(28px,6vh,56px) 0}
+.cl a{display:block;padding-top:10px;border-top:1px solid var(--ink);font-size:clamp(14px,1.2vw,17px);font-weight:600;overflow-wrap:anywhere;transition:color .2s}
+.cl a:hover{color:var(--accent)}
+.cl a span{display:block;font-family:var(--mono);font-size:11px;font-weight:400;color:var(--mute);margin-bottom:6px}
+.contact footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;font-size:12px;color:var(--mute)}
+
+/* 전체 페이지 보기 */
+dialog{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;border:0;background:#000;color:var(--ink);overflow:hidden}
+dialog::backdrop{background:#000}
+dialog[open]{display:flex;flex-direction:column}
+.vh{flex:none;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 20px;align-items:center;padding:12px var(--pad);border-bottom:1px solid var(--rule)}
+.vh b{font-size:clamp(16px,1.6vw,22px);font-weight:800;letter-spacing:-.03em}
+.vh span{grid-column:1;font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--mute)}
+.vh button{grid-column:2;grid-row:1/3;font-family:var(--mono);font-size:13px;padding:8px 12px;border:1px solid var(--rule);transition:color .2s,border-color .2s}
+.vh button:hover{color:var(--accent);border-color:var(--accent)}
+.vb{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.pg{width:100%;max-width:780px;margin:0 auto}
+.pg img{width:100%;height:auto;background:#111}
+.ve{max-width:780px;margin:0 auto;padding:26px var(--pad) 60px;font-size:13.5px;color:var(--soft)}
+
+@media (max-width:980px){
+  .bar{grid-template-columns:1fr auto auto}
+  .bar .c2,.bar .c4{display:none}
+  .svc3{grid-template-columns:1fr 1fr;gap:12px 18px}
+  .how{grid-template-columns:1fr}
+  .cl{grid-template-columns:1fr 1fr}
+}
+@media (min-width:981px){.state{text-align:justify}}
+@media (max-width:760px){
+  .name{font-size:clamp(60px,18vw,110px)}
+  .wh{grid-template-columns:1fr}.wh button{justify-self:start}
+  .kan{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:calc(var(--pad) * -1);margin-right:calc(var(--pad) * -1);padding:0 var(--pad) 4px;scroll-padding-inline:var(--pad);scrollbar-width:none}
+  .kan::-webkit-scrollbar{display:none}
+  .kan button{flex:0 0 68vw;scroll-snap-align:start}
+  .wb{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:14.5px}
+  .bar{gap:0 12px}
+  .bar .c3 .t{display:none}
+  .cl{grid-template-columns:1fr}
+  .name .clip{height:.56em}
+  .name .col:nth-child(3){display:none}
+  .foot .lbl:nth-child(2){display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .name .tr,.marq .tr,.bar .on .ast,.state .ast{animation:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ast" viewBox="-50 -50 100 100"><path d="M0-46V46M-46 0H46M-32.5-32.5 32.5 32.5M-32.5 32.5 32.5-32.5"/></symbol></svg>
+
+<header class="bar">
+  <b class="c1">김진현 — KIM JINHYEON</b>
+  <a class="c2" href="../">전체 포트폴리오 ↗</a>
+  <span class="c3">경북 안동 <span class="t" id="clock">--:--:--</span></span>
+  <span class="c4 on"><svg class="ast" aria-hidden="true"><use href="#ast"/></svg>지금 작업 가능 · 재택 전국</span>
+  <a class="go" href="#contact">연락하기 ↘</a>
+</header>
+
+<section class="hero" id="top">
+  <div class="cap"><span class="lbl">( 상세페이지 · <b>ANDONG, KR</b> )</span><span class="lbl">DETAIL 2026</span></div>
+  <p class="state"><svg class="ast" aria-hidden="true"><use href="#ast"/></svg><strong>만져 볼 수 없는 물건</strong>을 사진과 순서로 설명합니다. 실제로 납품한 겨울 제품 페이지 <strong><em>세&nbsp;편</em></strong>입니다.</p>
+  <div>
+    <div class="svc3">
+      <span><b>칸 구성</b>무엇을 먼저 보여 줄지 순서를 잡음</span>
+      <span><b>문구</b>제목부터 구매 전 확인 칸까지</span>
+      <span><b>사진</b>받은 자료를 바탕으로 AI로 만듦</span>
+      <span><b>납품</b>판매처에 맞는 폭으로 나눠 드림</span>
+    </div>
+    <h1 class="name" aria-label="김진현"><span class="s">김</span><span class="clip" aria-hidden="true"><span class="cols"><span class="col"><span class="tr"><img src="img/col_socks.webp" alt=""><img src="img/col_socks.webp" alt=""></span></span><span class="col"><span class="tr"><img src="img/col_balaclava.webp" alt=""><img src="img/col_balaclava.webp" alt=""></span></span><span class="col"><span class="tr"><img src="img/col_legwarmer.webp" alt=""><img src="img/col_legwarmer.webp" alt=""></span></span></span></span><span class="s">진현</span></h1>
+    <div class="foot"><span class="lbl">01/</span><span class="lbl">화면 속 페이지 — 실제 납품작 · 브랜드 이름은 가림 · 사진은 AI로 만듦</span><a class="lbl" href="#w1">작업 보기 ↓</a></div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="tr" id="mq"></div></div>
+
+<section class="work" id="w1" data-work="socks" data-title="겨울 기모 양말">
+  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 2026 · 브랜드 이름은 가림 · 사진은 AI로 만듦</span><h2>겨울 기모 양말</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
+  <div class="kan" role="group" aria-label="겨울 기모 양말 상세페이지 칸">
+    <button type="button" data-at="01"><img loading="lazy" src="img/socks/01.webp" width="780" height="1502" alt="첫 화면, 기모 양말을 접어 안감을 보여 주는 착용 사진"></button>
+    <button type="button" data-at="03"><img loading="lazy" src="img/socks/03.webp" width="780" height="1613" alt="겨울 양말의 아쉬운 점을 말풍선으로 묻는 칸"></button>
+    <button type="button" data-at="04"><img loading="lazy" src="img/socks/04.webp" width="780" height="2202" alt="제품 사진과 네 가지 특징 목록"></button>
+    <button type="button" data-at="07"><img loading="lazy" src="img/socks/07.webp" width="780" height="2827" alt="밴드를 양손으로 늘린 사진과 신은 사진"></button>
+    <button type="button" data-at="11"><img loading="lazy" src="img/socks/11.webp" width="780" height="1835" alt="양말 입구와 밴드를 가까이 찍은 디테일 칸"></button>
+  </div>
+  <div class="wb"><p>쿠팡에 올릴 남성용 겨울 양말입니다. 얇은 양말을 신을 때 겪는 불편을 먼저 묻고, 기모 안감과 밴드를 차례로 보여 줍니다. 두께는 말로 설명하지 않고 손에 쥔 사진과 얇은 양말을 나란히 둔 사진으로 보여 줍니다. 칸을 누르면 그 자리부터 전체 페이지가 열립니다.</p>
+  <dl><dt>맡은 일</dt><dd>칸 구성, 문구, 사진 지시, 디자인</dd><dt>사진</dt><dd>의뢰인이 준 실물 사진을 참고해 AI로 만듦</dd><dt>납품</dt><dd>폭 780px, 세로로 나눈 PNG 6장</dd><dt>공개판</dt><dd>브랜드 이름을 지우고, 판매처·상품 고시·저작권 칸을 뺐습니다. 의뢰인 허락을 받아 올렸습니다.</dd></dl></div>
+</section>
+
+<section class="work" id="w2" data-work="legwarmer" data-title="발토시 레그워머">
+  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 2026 · 브랜드 이름은 가림 · 사진은 AI로 만듦</span><h2>발토시 레그워머</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
+  <div class="kan" role="group" aria-label="발토시 레그워머 상세페이지 칸">
+    <button type="button" data-at="01"><img loading="lazy" src="img/legwarmer/01.webp" width="780" height="1477" alt="첫 화면, 발토시를 신은 다리와 1+1 표시"></button>
+    <button type="button" data-at="02"><img loading="lazy" src="img/legwarmer/02.webp" width="780" height="1325" alt="제품 두 개를 놓은 사진과 세 가지 특징 아이콘"></button>
+    <button type="button" data-at="05"><img loading="lazy" src="img/legwarmer/05.webp" width="780" height="1540" alt="첫 번째 포인트, 융털 안감을 가까이 찍은 사진"></button>
+    <button type="button" data-at="11"><img loading="lazy" src="img/legwarmer/11.webp" width="780" height="1499" alt="착용 사진 위에 부위별 디테일을 표시한 칸"></button>
+    <button type="button" data-at="13"><img loading="lazy" src="img/legwarmer/13.webp" width="780" height="2409" alt="세 단계 착용 방법 사진"></button>
+  </div>
+  <div class="wb"><p>시린 종아리와 무릎을 덮는 발토시입니다. 쓸 일이 바로 떠오르도록 착용 전후 사진을 앞에 두고, 포인트 여섯 가지를 한 칸씩 풀었습니다. 처음 쓰는 사람을 위해 신는 순서도 세 장의 사진으로 넣었습니다. 시작할 때 상위 판매자 12곳의 페이지를 모아 어떤 사진을 쓰는지 세어 봤습니다.</p>
+  <dl><dt>맡은 일</dt><dd>시장조사, 칸 구성, 문구, 사진 지시, 디자인</dd><dt>사진</dt><dd>의뢰인이 준 실물 사진을 참고해 AI로 만듦</dd><dt>납품</dt><dd>폭 860px와 780px 두 벌</dd><dt>공개판</dt><dd>브랜드 이름을 지우고, 판매처·후기·상품 고시·저작권 칸을 뺐습니다. 의뢰인 허락을 받아 올렸습니다.</dd></dl></div>
+</section>
+
+<section class="work" id="w3" data-work="balaclava" data-title="니트 바라클라바">
+  <div class="wh"><span class="n"><i>●</i> 실제 납품 · 2026 · 브랜드 이름은 가림 · 사진은 AI로 만듦</span><h2>니트 바라클라바</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
+  <div class="kan" role="group" aria-label="니트 바라클라바 상세페이지 칸">
+    <button type="button" data-at="01"><img loading="lazy" src="img/balaclava/01.webp" width="780" height="1485" alt="첫 화면, 크림색 바라클라바를 쓴 모델 사진"></button>
+    <button type="button" data-at="04"><img loading="lazy" src="img/balaclava/04.webp" width="780" height="1771" alt="겨울 외출 준비를 표로 비교한 어두운 칸"></button>
+    <button type="button" data-at="08"><img loading="lazy" src="img/balaclava/08.webp" width="780" height="2032" alt="제품 사진에 부위 번호를 붙인 구조 설명 칸"></button>
+    <button type="button" data-at="12"><img loading="lazy" src="img/balaclava/12.webp" width="780" height="2462" alt="세 단계 착용 방법 사진"></button>
+    <button type="button" data-at="15"><img loading="lazy" src="img/balaclava/15.webp" width="780" height="2447" alt="바닷가와 벽돌 골목에서 찍은 크림색 착용 사진"></button>
+  </div>
+  <div class="wb"><p>머리부터 목까지 한 번에 덮는 니트 후드입니다. 낯선 제품이라 부위마다 번호를 붙여 구조부터 설명하고, 쓰는 법과 단추로 핏을 고르는 법을 사진으로 보여 줍니다. 크림화이트와 블랙은 색마다 어울리는 장소를 따로 잡았고, 같은 모델 얼굴로 맞췄습니다.</p>
+  <dl><dt>맡은 일</dt><dd>시장조사, 칸 구성, 문구, 사진 지시, 디자인</dd><dt>사진</dt><dd>의뢰인이 준 실물·착용 사진을 바탕으로 AI로 만듦</dd><dt>납품</dt><dd>폭 860px와 780px 두 벌</dd><dt>공개판</dt><dd>브랜드 이름을 지우고, 판매처·후기·상품 고시·저작권·브랜드 소개 칸을 뺐습니다. 의뢰인 허락을 받아 올렸습니다.</dd></dl></div>
+</section>
+
+<section class="how" id="how">
+  <h2><b>일하는</b><br>방식<em>.</em></h2>
+  <div>
+    <p>첫 화면 시안을 먼저 보여 드립니다. 방향이 맞으면 나머지 칸을 만들고, 고칠 곳을 짚어 주시면 고쳐서 판매처 규격으로 넘겨 드립니다.</p>
+    <dl>
+      <dt>먼저 받을 것</dt><dd>제품 정보와 실물 사진, 판매처, 마음에 드는 참고 페이지</dd>
+      <dt>넘겨 드릴 것</dt><dd>판매처 폭에 맞춘 이미지(PNG·JPG)와 확인용 PDF</dd>
+      <dt>사진</dt><dd>실물 사진이 부족하면 AI로 만들어 채웁니다. 실제 제품과 달라지지 않게 받은 사진과 대조합니다.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>같이<br>만들어요<em>.</em></h2>
+  <div class="cl">
+    <a href="mailto:impactmarker.marketing@gmail.com"><span>메일</span>impactmarker.marketing@gmail.com</a>
+    <a href="tel:01045581589"><span>전화·문자 · 평일 저녁 바로 받아요</span>010-4558-1589</a>
+    <a href="../web/"><span>웹사이트 작업</span>웹 포트폴리오 ↗</a>
+    <a href="../"><span>영상·디자인까지</span>전체 포트폴리오 ↗</a>
+  </div>
+  <footer><span>© 2026 김진현 · 경북 안동 · 재택으로 전국 작업</span><span>GTQ 1급 · Google Cloud AI 과정 620시간 수료</span></footer>
+</section>
+
+<dialog id="viewer" aria-labelledby="vt">
+  <div class="vh"><b id="vt"></b><span>브랜드 이름은 가림 · 사진은 AI로 만듦</span><button type="button" id="vx">닫기 ✕</button></div>
+  <div class="vb" id="vb" tabindex="-1"><div class="pg" id="pg"></div><p class="ve" id="ve"></p></div>
+</dialog>
+
+<script>
+const $=s=>document.querySelector(s);
+const fmt=new Intl.DateTimeFormat("ko-KR",{timeZone:"Asia/Seoul",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});
+const tick=()=>{$("#clock").textContent=fmt.format(new Date())};tick();setInterval(tick,1000);
+const words=["칸 구성","문구","사진","디자인","시장조사","860px","780px","PDF 확인본"];
+const one=words.map(w=>`${w}<i><svg class="ast"><use href="#ast"/></svg></i>`).join("");
+$("#mq").innerHTML=`<span>${one}</span><span>${one}</span>`;
+
+// 칸 높이: 이미지가 오기 전에 자리를 잡아 두어 원하는 칸으로 바로 갈 수 있게 한다
+const H={
+  socks:[1502,1619,1613,2202,1964,3699,2827,1868,2329,1364,1835,1535,1300,1148,2304],
+  legwarmer:[1477,1325,927,346,1540,1348,1641,1396,1382,1426,1499,1331,2409,887,343],
+  balaclava:[1485,1457,1481,1771,1359,1503,1563,2032,1171,1104,1942,2462,1196,1430,2447,2447,1454,1171,1681,1321,1059,485,794]
+};
+const NOTE={
+  socks:"납품한 페이지에서 브랜드 이름을 지우고 판매처·상품 고시·저작권 칸을 뺀 공개판입니다.",
+  legwarmer:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·상품 고시·저작권 칸을 뺀 공개판입니다.",
+  balaclava:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·상품 고시·저작권·브랜드 소개 칸을 뺀 공개판입니다."
+};
+const v=$("#viewer"),pg=$("#pg"),vb=$("#vb");
+const pad=n=>String(n).padStart(2,"0");
+function openWork(sec,at){
+  const w=sec.dataset.work;
+  $("#vt").textContent=sec.dataset.title+" 전체 페이지";
+  $("#ve").textContent=NOTE[w];
+  if(pg.dataset.w!==w){
+    pg.dataset.w=w;
+    pg.innerHTML=H[w].map((h,i)=>`<img id="k${pad(i+1)}" loading="lazy" src="img/${w}/${pad(i+1)}.webp" width="780" height="${h}" alt="${sec.dataset.title} 상세페이지 ${i+1}번째 칸">`).join("");
+  }
+  v.showModal();
+  document.documentElement.classList.add("lock");
+  vb.scrollTop=0;
+  if(at){const t=document.getElementById("k"+at);if(t)vb.scrollTop=t.offsetTop-vb.offsetTop}
+  vb.focus({preventScroll:true});
+}
+document.querySelectorAll(".work").forEach(sec=>{
+  sec.querySelector("[data-open]").addEventListener("click",()=>openWork(sec));
+  sec.querySelectorAll("[data-at]").forEach(b=>b.addEventListener("click",()=>openWork(sec,b.dataset.at)));
+});
+$("#vx").addEventListener("click",()=>v.close());
+v.addEventListener("close",()=>document.documentElement.classList.remove("lock"));
+</script>
+</body>
+</html>
