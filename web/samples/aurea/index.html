@@ -28,7 +28,14 @@ canvas{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
 .note{bottom:max(16px,env(safe-area-inset-bottom));font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.01em;word-break:keep-all}
 .note span{background:rgba(12,18,40,.56);padding:3px 7px 4px;border-radius:2px}
 .bar a{text-shadow:0 0 10px rgba(10,20,50,.55)}
-.hint{transition:opacity .3s ease}
+.hint{position:fixed;z-index:4;left:0;right:0;bottom:max(62px,calc(env(safe-area-inset-bottom) + 62px));display:flex;flex-direction:column;align-items:center;color:#fff;font-size:clamp(34px,3vw,44px);font-style:italic;line-height:1;filter:drop-shadow(0 0 6px rgba(9,18,50,.9)) drop-shadow(0 2px 16px rgba(9,18,50,.65));pointer-events:none;transition:opacity .3s ease}
+.hint>span{display:flex;flex-direction:column;align-items:center;animation:cuebob 1.5s ease-in-out infinite}
+.hint b{font-weight:400;margin-bottom:10px}
+.hint i{display:block;width:20px;height:20px;margin-top:-9px;border-right:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(45deg);opacity:.15;animation:cuewave 1.5s linear infinite}
+.hint i:nth-of-type(2){animation-delay:.18s}
+.hint i:nth-of-type(3){animation-delay:.36s}
+@keyframes cuewave{0%,100%{opacity:.15}35%{opacity:1}}
+@keyframes cuebob{0%,100%{transform:translateY(-5px)}50%{transform:translateY(5px)}}
 
 .scene{position:fixed;z-index:3;left:var(--pad);right:var(--pad);pointer-events:none;word-break:keep-all;will-change:opacity}
 .ln{display:block;overflow:hidden;padding-bottom:.2em;margin-bottom:-.2em}
@@ -68,7 +75,6 @@ canvas{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
   #s6{top:auto;bottom:9vh;max-width:none}
   #s6 .big{font-size:26vw}
   #stars{left:auto;right:6vw;top:9vh;width:58vw}
-  .note span:last-child{display:none}
 }
 
 /* 움직임 줄이기, WebGL 없음: 그림과 글을 차례로 쌓아 보여 준다 */
@@ -118,7 +124,8 @@ body.flat .ln>span{transform:none!important}
   <g id="pts"></g>
 </svg>
 
-<footer class="note"><span>Sample · Fictional brand · Paintings made with AI</span><span class="hint" id="hint">Scroll down</span></footer>
+<div class="hint" id="hint" aria-hidden="true"><span><b>Scroll</b><i></i><i></i><i></i></span></div>
+<footer class="note"><span>Sample · Fictional brand · Paintings made with AI</span></footer>
 <div id="track"></div>
 
 <script id="vs" type="x-shader">
