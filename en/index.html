@@ -113,6 +113,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 .cr .kd{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;align-self:center}
 .cr .kd.real{color:var(--accent)}
 .case{display:grid;grid-template-columns:minmax(0,1fr) clamp(200px,21vw,300px);gap:clamp(22px,4vw,64px);align-items:end;margin:0 var(--pad) clamp(36px,6vh,72px);padding:clamp(20px,3vw,34px) 0;border-top:1px solid var(--fline);border-bottom:1px solid var(--fline)}
+.case.c169{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);align-items:center}
+.case.c169 .reel{cursor:pointer}.case.c169 .vb{aspect-ratio:16/9}
 .case .vw{display:flex;flex-wrap:wrap;gap:10px clamp(28px,5vw,80px);margin:16px 0 20px}
 .case .vw big{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(68px,10.5vw,170px);line-height:.88;letter-spacing:-.05em;color:var(--cream)}
 .case .vw big sup{font-family:var(--latin);font-style:italic;font-weight:400;color:var(--accent);font-size:.5em;vertical-align:.72em;margin-left:.03em;letter-spacing:0}
@@ -238,6 +240,7 @@ dialog .x{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(
   .wide{grid-template-columns:1fr;gap:22px}
   .case{grid-template-columns:1fr;align-items:start}
   .case .reel{max-width:280px}
+  .case.c169{grid-template-columns:1fr}.case.c169 .reel{max-width:none}
   .ig{grid-template-columns:1fr}
   .pvw{display:none}
   .nums{grid-template-columns:1fr 1fr}
@@ -308,9 +311,18 @@ body{word-break:normal;overflow-wrap:break-word}
     <h2><b>Video</b><br>Reels, shorts, MVs</h2>
     <p>From real-footage edits to AI music videos. Tap any video to watch it large, with sound.</p>
   </div>
+  <div class="case c169 rv" id="kiki" aria-label="KiiiKiii “404 (New Era)” stage">
+    <div>
+      <p class="lbl">CASE 01 · KiiiKiii “404 (New Era)” · client edit</p>
+      <div class="vw"><div><big>404</big><span>KiiiKiii “404 (New Era)” stage</span></div><div><big>14<sup>min</sup></big><span>logos blurred frame by frame</span></div></div>
+      <p class="d"><b>Stage footage of KiiiKiii, made for broadcast on Mnet Plus.</b> Across 14 minutes of five members moving, I removed the chest and back logos frame by frame, filling them with the garment colour and blurring instead of mosaicking. Delivered with the Premiere Pro project file. Same client: a cap logo on another 17-minute stage, <b>31 minutes</b> in total.</p>
+      <p class="asof">Clip from the finished “404 (New Era)” stage · shown with the client’s permission</p>
+    </div>
+    <figure class="reel" id="kikiV" data-v="kiiikiii_404" data-k="real" data-t="KiiiKiii “404 (New Era)” stage" data-s="0:18 · made for Mnet Plus broadcast · frame-by-frame logo blur"><div class="vb"><video src="../v/kiiikiii_404.mp4" poster="../v/kiiikiii_404.jpg" muted loop playsinline preload="none" data-auto></video><span class="snd">▶ Play with sound</span></div><figcaption class="cr"><b>KiiiKiii “404 (New Era)” stage</b><span class="kd real">Real footage</span><span>0:18</span></figcaption></figure>
+  </div>
   <div class="case rv" id="dalma" aria-label="View counts for Dalma Fishing TV edits">
     <div>
-      <p class="lbl">CASE 01 · Fishing YouTube channel “Dalma Fishing TV” · client edits</p>
+      <p class="lbl">CASE 02 · Fishing YouTube channel “Dalma Fishing TV” · client edits</p>
       <div class="vw"><div><big>390K<sup>+</sup></big><span>YouTube Shorts views</span></div><div><big>320K<sup>+</sup></big><span>Instagram Reel views</span></div></div>
       <p class="d">A one-minute short built around a commercial fishing vessel ramming the client’s boat. The collision lands in the first second, and faces on the other vessel are mosaicked. Seven of my edits are live on the channel, <b>450K+ YouTube views</b> in total.</p>
       <ol><li><a href="https://www.youtube.com/shorts/-1PoVgFBWnU" target="_blank" rel="noopener"><span>Rammed by a fishing vessel mid-trip?!</span><span class="k">Short</span><span class="n">390K+</span></a></li><li><a href="https://www.youtube.com/watch?v=4X-ssOx7ZV4" target="_blank" rel="noopener"><span>200 hairtail on this one rig?</span><span class="k">9:31</span><span class="n">12K+</span></a></li><li><a href="https://www.youtube.com/shorts/zA3seGuceGo" target="_blank" rel="noopener"><span>Hairtail omori rig</span><span class="k">Short</span><span class="n">11K+</span></a></li><li><a href="https://www.youtube.com/shorts/ZsVwDk0iY-o" target="_blank" rel="noopener"><span>4-tier squid rig</span><span class="k">Short</span><span class="n">9,400+</span></a></li><li><a href="https://www.youtube.com/watch?v=dnmejZWYz9E" target="_blank" rel="noopener"><span>150 squid in October? For real!</span><span class="k">27:33</span><span class="n">9,000+</span></a></li><li><a href="https://www.youtube.com/watch?v=IjX6pfrdUXY" target="_blank" rel="noopener"><span>How to run a hairtail omori rig</span><span class="k">31:23</span><span class="n">6,500+</span></a></li><li><a href="https://www.youtube.com/shorts/FWR2MWcl_p4" target="_blank" rel="noopener"><span>Haewoo light jigging rod</span><span class="k">Short</span><span class="n">3,600+</span></a></li></ol>
@@ -319,7 +331,7 @@ body{word-break:normal;overflow-wrap:break-word}
     <figure class="reel" id="dalmaV" data-v="dalma_aggro" data-k="real" data-t="Fishing channel collision short" data-s="1:04 · 390K+ YouTube Shorts views · 320K+ Instagram Reel views (as of Nov 5, 2026)"><div class="vb"><video src="../v/dalma_aggro.mp4" poster="../v/dalma_aggro.jpg" muted loop playsinline preload="none" data-auto></video><span class="snd">▶ Play with sound</span></div><figcaption class="cr"><b>Rammed by a fishing vessel mid-trip?!</b><span class="kd real">Real footage</span><span>1:04</span></figcaption></figure>
   </div>
   <div class="flt rv" id="flt" role="group" aria-label="Video type"></div>
-  <p class="fnote">Longer real-footage work (a 7-hour live stream cut to a 31-minute episode, a 6-hour stream cut to 10 minutes) is live on the client’s channel. Titles in <a href="#dalma">CASE 01</a> open YouTube.</p>
+  <p class="fnote">Longer real-footage work (a 7-hour live stream cut to a 31-minute episode, a 6-hour stream cut to 10 minutes) is live on the client’s channel. Titles in <a href="#dalma">CASE 02</a> open YouTube.</p>
   <div class="wide rv" id="wide"></div>
   <div class="reels rv" id="reels"></div>
   <div class="hint"><span class="nav" id="rnav"><button type="button" id="rp">← Prev</button><button type="button" id="rn">Next →</button></span><span class="lbl">( 9 : 16 )</span></div>
@@ -345,10 +357,10 @@ body{word-break:normal;overflow-wrap:break-word}
 </section>
 
 <section class="nums" aria-label="Work in numbers">
+  <div class="rv"><big>404</big><p>KiiiKiii “404 (New Era)”: <b>stage footage made for Mnet Plus broadcast</b>, 14 minutes of frame-by-frame logo blur</p></div>
   <div class="rv"><big>390K<sup>+</sup></big><p>One <b>fishing-channel short</b> passed 390K YouTube views and 320K on Instagram Reels (as of Nov 5, 2026)</p></div>
   <div class="rv"><big>7h<span class="ar">→</span>31m</big><p>A <b>7-hour live stream</b> cut into a 31-minute episode and 2 shorts, with motion graphics at 10 key moments</p></div>
   <div class="rv"><big>1,251</big><p><b>1,251 AI voice lines</b> synced with subtitles in a 2-hour-13-minute narrated video</p></div>
-  <div class="rv"><big>8<sup>eps</sup></big><p>An <b>AI character short series</b> about Hahoe Village, in Korean and English</p></div>
   <div class="rv"><big>6<sup>languages</sup></big><p>A <b>co-op website</b> that switches between 6 languages, planned, built and deployed by me</p></div>
   <div class="rv"><big>20<sup>min</sup></big><p>A <b>28-page Korean report</b> drafted from last year's HWP file by my own automation</p></div>
 </section>
@@ -396,26 +408,24 @@ const WIDE=[
  ["kinder_demo","Kindergarten intro video (sample)","Motion · narration sync","0:55 · Oct 2026","Sample for a fictional kindergarten · photos and text appear in time with the narration","motion"]
 ];
 const REELS=[
- ["ryuha_03_en","Ryuha Ep.3 (English)","0:50","AI character short · English version for foreign visitors","ai"],
  ["onsen_reel_a","Hot-spring trip reel","0:25","Client footage edit · cuts on the beat · vertical title and info text","real"],
  ["pharm_reel","Pharmacist health-tip reel","0:14","Client edit · face blurred · Korean","real"],
  ["onsen_reel_b","Hot-spring trip reel 2","0:20","Same footage, another cut · letterbox band · logo motion · satellite-map zoom · object labels","real"],
- ["saju_ad","Fortune-telling app ad","0:16","AI character · fast cuts, sound effects, AI voice-over · Korean","ai"],
- ["ryuha_07","Ryuha Ep.7","0:56","AI character series about Hahoe Village · Korean","ai"],
  ["songpyeon_guide","Directions to a rice-cake class","0:31","Route animated on a real map · AI voice-over · Korean","motion"],
  ["hansul_tip03","AI tip: tidy meeting notes","0:42","Reel for my AI-tips account · motion graphics · Korean","motion"],
- ["ryuha_08","Ryuha Ep.8","0:49","AI character · captions · transitions · Korean","ai"],
- ["hansul_muse","Signing up for Meta Muse","0:43","Screen-recording tutorial reel · Korean","motion"],
- ["ryuha_06","Ryuha Ep.6","0:40","AI character series · Korean","ai"]
+ ["ryuha_03_en","Ryuha Ep.3 (English)","0:50","AI character short · English version for foreign visitors","ai"],
+ ["saju_ad","Fortune-telling app ad","0:16","AI character · fast cuts, sound effects, AI voice-over · Korean","ai"],
+ ["ryuha_07","Ryuha Ep.7","0:56","AI character series about Hahoe Village · Korean","ai"],
+ ["hansul_muse","Signing up for Meta Muse","0:43","Screen-recording tutorial reel · Korean","motion"]
 ];
 // Index: [title, type, year, media {v:video|i:image|t:text}, note]
 const ROWS=[
- ["AI character short series 「Ryuha」","AI video · 8 eps · KO/EN","2026",{v:"ryuha_03_en"},"Stories of Hahoe Village told by an AI character. Planning, script, generation and editing, all by me"],
+ ["KiiiKiii “404” stage video: logo blur","Editing · broadcast delivery","2026",{v:"kiiikiii_404"},"Made for Mnet Plus broadcast. Chest and back logos across a 14-minute five-member stage, frame by frame, plus a cap logo on another 17-minute stage: 31 minutes in total. See CASE 01 under Video"],
+ ["Fishing YouTube channel edits ×7","Editing · motion graphics · shorts","2026",{t:["One short,<br><b>390K+</b> YouTube views","A 7-hour live stream cut to a 31-minute episode, a 6-hour stream cut to 10 minutes, a boat collision cut to a one-minute short. Seven edits live on the channel, 450K+ YouTube views in total (as of Nov 5, 2026)."]},"Client work · see CASE 02 under Video"],
  ["Andong Mask Dance Festival — music video parody","AI video · promo","2026",{v:"talchum_mv"},"35-second AI music video promoting a guesthouse in Hahoe Village"],
  ["AI character music video","AI video · contest","2026",{v:"mv_ai"},"Contest entry with kinetic typography"],
- ["Fishing YouTube channel edits ×7","Editing · motion graphics · shorts","2026",{t:["One short,<br><b>390K+</b> YouTube views","A 7-hour live stream cut to a 31-minute episode, a 6-hour stream cut to 10 minutes, a boat collision cut to a one-minute short. Seven edits live on the channel, 450K+ YouTube views in total (as of Nov 5, 2026)."]},"Client work · see CASE 01 under Video"],
- ["Broadcast idol stage video — logo blur","Editing · broadcast delivery","2026",{t:["<b>31 min</b> of stage footage,<br>logos only, frame by frame","Removed chest and back logos from a 14-minute five-member stage, and a cap logo from a 17-minute stage. Logos filled with the garment colour and blurred instead of mosaicked; delivered with the Premiere Pro project file."]},"Client work · pre-broadcast · not shown publicly"],
  ["2-hour-13-minute narrated video","AI voice · subtitle sync","2026",{t:["<b>1,251</b> AI voice lines,<br>synced line by line","Sponsor notes, title narration, chapter labels and grouped screens. Delivered in two versions: normal speed and 1.1×."]},"Client work · not shown publicly"],
+ ["AI character short series 「Ryuha」","AI video · 8 eps · KO/EN","2026",{v:"ryuha_03_en"},"Stories of Hahoe Village told by an AI character. Planning, script, generation and editing, all by me"],
  ["Pharmacist health-tip reel","Short-form edit","2026",{v:"pharm_reel"},"Client's on-camera video, edited · face blurred"],
  ["Hot-spring trip reels ×2","Reel edit · real footage","2026",{v:"onsen_reel_a"},"Client's travel footage cut two ways · cuts on the beat, letterbox band, satellite-map zoom"],
  ["Directions to a rice-cake class","Map animation","2026",{v:"songpyeon_guide"},"Route animated on a real map · AI voice-over"],
@@ -504,6 +514,7 @@ function openSeq(list,i){seq=list;pos=i;go(0)}
 function openRow(i){openSeq(ROWS.map((r,j)=>()=>rowItem(j)),i)}
 figs().forEach(f=>f.addEventListener("click",()=>{const vis=figs().filter(x=>!x.hidden);openSeq(vis.map(x=>()=>figItem(x)),vis.indexOf(f))}));
 $("#dalmaV").addEventListener("click",()=>openSeq([()=>figItem($("#dalmaV"))],0));
+$("#kikiV").addEventListener("click",()=>openSeq([()=>figItem($("#kikiV"))],0));
 $("#lbp").addEventListener("click",()=>go(-1));$("#lbn").addEventListener("click",()=>go(1));
 document.addEventListener("keydown",e=>{if(!lb.open||e.target.tagName==="VIDEO")return;if(e.key==="ArrowRight")go(1);else if(e.key==="ArrowLeft")go(-1)});
 $("#lbx").addEventListener("click",()=>lb.close());
@@ -516,7 +527,7 @@ addEventListener("hashchange",fromHash);fromHash();
 document.querySelectorAll("a[href^='#']").forEach(a=>{const k=a.getAttribute("href").slice(1);if(KIND[k])a.addEventListener("click",e=>{e.preventDefault();history.replaceState(null,"","#"+k);fromHash()})});
 
 // Cursor label (pointer devices only)
-if(matchMedia("(hover:hover) and (pointer:fine)").matches){const cl=$("#cl");document.addEventListener("pointermove",e=>{cl.style.left=e.clientX+"px";cl.style.top=e.clientY+"px"});document.querySelectorAll(".row,#wide figure,#reels .reel").forEach(el=>{el.addEventListener("mouseenter",()=>cl.classList.add("on"));el.addEventListener("mouseleave",()=>cl.classList.remove("on"))})}
+if(matchMedia("(hover:hover) and (pointer:fine)").matches){const cl=$("#cl");document.addEventListener("pointermove",e=>{cl.style.left=e.clientX+"px";cl.style.top=e.clientY+"px"});document.querySelectorAll(".row,#wide figure,#reels .reel,#kikiV").forEach(el=>{el.addEventListener("mouseenter",()=>cl.classList.add("on"));el.addEventListener("mouseleave",()=>cl.classList.remove("on"))})}
 
 // Reveal
 const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");ro.unobserve(e.target)}}),{threshold:.12});
