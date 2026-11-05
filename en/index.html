@@ -90,6 +90,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 .cr b{width:100%;color:var(--cream);font-weight:600;font-size:14px}
 .reels{display:flex;gap:clamp(8px,1.2vw,16px);overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 6px;scroll-padding-inline:var(--pad);scrollbar-width:none}
 .reels::-webkit-scrollbar{display:none}
+@media (hover:hover) and (pointer:fine){.reels,.reels .reel{cursor:grab}.reels{user-select:none;-webkit-user-select:none}.reels video{-webkit-user-drag:none}}
+.reels.drag,.reels.drag .reel{cursor:grabbing;scroll-snap-type:none}
 .reel{flex:0 0 clamp(178px,17.5vw,268px);scroll-snap-align:start;cursor:pointer}
 .reel .vb{position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--film2)}
 .reel video{width:100%;height:100%;object-fit:cover}
@@ -462,6 +464,24 @@ const rp=$("#rp"),rn=$("#rn");
 function navState(){const m=reels.scrollWidth-reels.clientWidth;$("#rnav").hidden=m<4;rp.disabled=reels.scrollLeft<4;rn.disabled=reels.scrollLeft>m-4}
 [rp,rn].forEach((b,j)=>b.addEventListener("click",()=>{const c=reels.querySelector(".reel:not([hidden])"),w=c?c.offsetWidth:200;reels.scrollBy({left:(j?1:-1)*Math.max(w,reels.clientWidth-w*1.5),behavior:"smooth"})}));
 reels.addEventListener("scroll",navState,{passive:true});addEventListener("resize",navState);navState();
+
+// 릴스 줄을 마우스로 끌어 넘기기 (터치·트랙패드는 원래 스크롤 그대로)
+(()=>{let d=null,moved=false;
+reels.addEventListener("pointerdown",e=>{if(e.pointerType!=="mouse"||e.button)return;moved=false;d={id:e.pointerId,x:e.clientX,l:reels.scrollLeft,px:e.clientX,t:performance.now(),v:0}});
+reels.addEventListener("pointermove",e=>{if(!d||e.pointerId!==d.id)return;const dx=e.clientX-d.x;
+  if(!moved){if(Math.abs(dx)<6)return;moved=true;reels.setPointerCapture(d.id);reels.classList.add("drag");$("#cl").classList.remove("on")}
+  const now=performance.now();d.v=(d.px-e.clientX)/Math.max(1,now-d.t);d.px=e.clientX;d.t=now;reels.scrollLeft=d.l-dx});
+function end(e){if(!d||e.pointerId!==d.id)return;const v=performance.now()-d.t<80?d.v:0;d=null;if(!moved)return;
+  const pad=parseFloat(getComputedStyle(reels).scrollPaddingInlineStart)||0,max=reels.scrollWidth-reels.clientWidth,want=reels.scrollLeft+v*220;
+  const stops=[...reels.querySelectorAll(".reel:not([hidden])")].map(c=>Math.min(max,Math.max(0,c.offsetLeft-reels.offsetLeft-pad)));
+  const to=stops.reduce((a,b)=>Math.abs(b-want)<Math.abs(a-want)?b:a,reels.scrollLeft);
+  const done=()=>reels.classList.remove("drag");reels.addEventListener("scrollend",done,{once:true});setTimeout(done,600);
+  reels.scrollTo({left:to,behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
+  setTimeout(()=>{moved=false},60)}
+reels.addEventListener("pointerup",end);reels.addEventListener("pointercancel",end);
+reels.addEventListener("click",e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+reels.addEventListener("dragstart",e=>e.preventDefault());
+})();
 
 // Index + preview
 const pbox=$("#pbox");
