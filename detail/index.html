@@ -227,11 +227,11 @@ dialog[open]{display:flex;flex-direction:column}
 <section class="work" id="w3" data-work="balaclava" data-title="니트 바라클라바" data-sub="브랜드 이름 가림 · 사진은 AI로 만듦">
   <div class="wh"><span class="n"><i>●</i> 실제 납품 · 브랜드 이름 가림 · 사진은 AI로 만듦</span><h2>니트 바라클라바</h2><button type="button" data-open>전체 페이지 보기 ↗</button></div>
   <div class="gr r" role="group" aria-label="니트 바라클라바 상세페이지 사진">
-    <button type="button" class="big" data-at="06"><img loading="lazy" src="img/tiles/balaclava-1.webp" width="1100" height="1100" alt="눈 오는 거리에서 크림색 바라클라바를 쓴 인물 사진"></button>
-    <button type="button" data-at="14"><img loading="lazy" src="img/tiles/balaclava-2.webp" width="640" height="640" alt="바닷가를 배경으로 크림색 바라클라바를 쓴 인물 사진"></button>
-    <button type="button" data-at="15"><img loading="lazy" src="img/tiles/balaclava-3.webp" width="640" height="640" alt="밤거리를 배경으로 검정 바라클라바를 쓴 인물 사진"></button>
-    <button type="button" data-at="01"><img loading="lazy" src="img/tiles/balaclava-4.webp" width="640" height="640" alt="크림색 후드를 쓰고 웃는 인물 사진"></button>
-    <button type="button" data-at="09"><img loading="lazy" src="img/tiles/balaclava-5.webp" width="640" height="640" alt="크림색과 검정 니트 결을 겹쳐 놓은 사진"></button>
+    <button type="button" class="big" data-at="06"><img loading="lazy" src="img/tiles/balaclava-1.webp" width="780" height="780" alt="크림색과 검정 바라클라바를 나란히 놓은 사진"></button>
+    <button type="button" data-at="02"><img loading="lazy" src="img/tiles/balaclava-2.webp" width="640" height="640" alt="크림색 바라클라바의 부위별 구조를 번호로 표시한 사진"></button>
+    <button type="button" data-at="06"><img loading="lazy" src="img/tiles/balaclava-3.webp" width="640" height="640" alt="검정 니트의 앞 단추 두 개를 가까이 찍은 사진"></button>
+    <button type="button" data-at="06"><img loading="lazy" src="img/tiles/balaclava-4.webp" width="640" height="640" alt="검정 니트의 앞 끈을 가까이 찍은 사진"></button>
+    <button type="button" data-at="03"><img loading="lazy" src="img/tiles/balaclava-5.webp" width="640" height="640" alt="크림색과 검정 니트 결을 겹쳐 놓은 사진"></button>
   </div>
   <p class="lbl hintk">사진을 누르면 그 칸부터 전체 페이지가 열립니다</p>
   <div class="wb"><p>머리부터 목까지 한 번에 덮는 니트 후드입니다. 낯선 제품이라 부위마다 번호를 붙여 구조부터 설명하고, 쓰는 법과 단추로 핏을 고르는 법을 사진으로 보여 줍니다. 크림화이트와 블랙은 색마다 어울리는 장소를 따로 잡았고, 같은 얼굴로 맞췄습니다.</p>
@@ -279,13 +279,13 @@ const H={
   bongjeongsa:[1290,1055,1238,1274,831,621,1291,619,1925,1217,536,1335,1422,961,1234,2434,1501,1291,1923,1471,1447,3171,1330,1960,1161],
   socks:[1502,1619,1613,2202,1964,3699,2827,1868,2329,1364,1835,1535,1300,1148,2304],
   legwarmer:[1477,1325,927,346,1540,1348,1641,1396,1382,1426,1499,1331,2409,887,343],
-  balaclava:[1403,1456,1481,1771,1359,1503,1563,2032,1171,1104,2462,1196,1430,2447,2447,1454,1171,1681,1321,1059,484,795]
+  balaclava:[1771,2032,1171,1104,1430,1171,1321,1059,484,795]
 };
 const NOTE={
   bongjeongsa:"금액이 나오는 선물 구성과 묻고 답하기 칸을 뺀 공개판입니다. 위키미디어 사진의 출처와 라이선스는 바로 위 칸에 있습니다.",
   socks:"납품한 페이지에서 브랜드 이름을 지우고 판매처·상품 고시·저작권 칸을 뺀 공개판입니다.",
   legwarmer:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·착용 컷·추천·자주 묻는 질문·상품 고시·저작권 칸을 뺀 공개판입니다.",
-  balaclava:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·착용 컷·두께 비교·상품 고시·저작권·브랜드 소개 칸을 뺀 공개판입니다."
+  balaclava:"납품한 페이지에서 브랜드 이름을 지우고 판매처·후기·인물이 나오는 칸·두께 비교·상품 고시·저작권·브랜드 소개 칸을 뺀 공개판입니다."
 };
 const v=$("#viewer"),pg=$("#pg"),vb=$("#vb");
 const pad=n=>String(n).padStart(2,"0");
