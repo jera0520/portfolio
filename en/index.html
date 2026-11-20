@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 :root{
-  --paper:#F1EDE4;--paper2:#E8E3D7;--ink:#141312;--mute:#7A756C;--rule:rgba(20,19,18,.16);
+  --paper:#FAFAF7;--paper2:#F0EFEA;--ink:#141312;--mute:#7A756C;--rule:rgba(20,19,18,.16);
   --accent:#DD4527;--film:#0E0E0D;--film2:#1A1918;--cream:#EEE9DE;
   --fmute:#8D887F;--fsoft:#A9A399;--fline:#2B2A28;--fline2:#34322F;
   --serif:"Hahmlet","Noto Serif KR",serif;--sans:"Pretendard Variable",Pretendard,-apple-system,system-ui,sans-serif;
@@ -71,6 +71,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;text-a
 .marq .tr{display:flex;width:max-content;animation:mq 46s linear infinite}
 .marq span{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.6vw,34px);padding:12px 0;white-space:nowrap}
 .marq span i{font-style:normal;color:var(--accent);margin:0 .8em}
+.marq .cl{margin-right:clamp(44px,5.5vw,84px);display:inline-flex;align-items:center;gap:12px;vertical-align:middle;font-family:var(--sans);font-size:15px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.marq .cl img{height:30px;width:auto;display:block}.marq .cl img.r{height:46px;border-radius:50%}.marq .cl img[src$="cl_pharm.png"]{height:40px}
+.marq .cl em{font-style:normal;font-weight:400;font-size:14px;color:var(--mute)}
 .marq .ast{width:.52em;height:.52em;vertical-align:.02em;stroke-width:8}
 @keyframes mq{to{transform:translateX(-50%)}}
 
@@ -406,18 +409,18 @@ body{word-break:normal;overflow-wrap:break-word}
 const WIDE=[
  ["talchum_mv","Andong Mask Dance Festival — music video parody","AI video","0:35 · Sep 2026","Promo for a guesthouse in Hahoe Village · AI-generated video","ai"],
  ["mv_ai","AI character music video","AI video","0:30 · Oct 2026","Contest entry · kinetic typography","ai"],
- ["kinder_demo","Kindergarten intro video (sample)","Motion · narration sync","0:55 · Oct 2026","Sample for a fictional kindergarten · photos and text appear in time with the narration","motion"]
+ ["gimjang_puppet","Grandma’s kimchi school — paper puppet film","Motion · AI art & voice","0:31 · Nov 2026","Promo for a market kimchi-making class · torn-paper puppet look, AI-made art pieces and narration · Korean","motion"]
 ];
 const REELS=[
  ["onsen_reel_a","Hot-spring trip reel","0:25","Client footage edit · cuts on the beat · vertical title and info text","real"],
  ["pharm_reel","Pharmacist health-tip reel","0:14","Client edit · face blurred · Korean","real"],
  ["onsen_reel_b","Hot-spring trip reel 2","0:20","Same footage, another cut · letterbox band · logo motion · satellite-map zoom · object labels","real"],
+ ["camping_dog","Camping channel short","0:32","Short cut from a camping vlog · AI voice-over from the dog’s point of view · Korean","real"],
  ["songpyeon_guide","Directions to a rice-cake class","0:31","Route animated on a real map · AI voice-over · Korean","motion"],
- ["hansul_tip03","AI tip: tidy meeting notes","0:42","Reel for my AI-tips account · motion graphics · Korean","motion"],
+ ["cabbage_coaster","Cabbage roller coaster","0:17","Kimchi-class promo short · AI video edit","ai"],
  ["ryuha_03_en","Ryuha Ep.3 (English)","0:50","AI character short · English version for foreign visitors","ai"],
  ["saju_ad","Fortune-telling app ad","0:16","AI character · fast cuts, sound effects, AI voice-over · Korean","ai"],
- ["ryuha_07","Ryuha Ep.7","0:56","AI character series about Hahoe Village · Korean","ai"],
- ["hansul_muse","Signing up for Meta Muse","0:43","Screen-recording tutorial reel · Korean","motion"]
+ ["ryuha_07","Ryuha Ep.7","0:56","AI character series about Hahoe Village · Korean","ai"]
 ];
 // Index: [title, type, year, media {v:video|i:image|t:text}, note]
 const ROWS=[
@@ -430,7 +433,7 @@ const ROWS=[
  ["Pharmacist health-tip reel","Short-form edit","2026",{v:"pharm_reel"},"Client's on-camera video, edited · face blurred"],
  ["Hot-spring trip reels ×2","Reel edit · real footage","2026",{v:"onsen_reel_a"},"Client's travel footage cut two ways · cuts on the beat, letterbox band, satellite-map zoom"],
  ["Directions to a rice-cake class","Map animation","2026",{v:"songpyeon_guide"},"Route animated on a real map · AI voice-over"],
- ["Kindergarten intro video (sample)","Motion · narration sync","2026",{v:"kinder_demo"},"Sample for a fictional kindergarten. Photos and text appear on the narrated words"],
+ ["Grandma’s kimchi school — paper puppet film","Motion · AI art & voice","2026",{v:"gimjang_puppet"},"Promo for a kimchi-making class at a local market. A torn-paper puppet look: the art pieces and narration are AI-made, the movement is mine"],
  ["Rice-cake class ad cards","Ad design · KO/EN/JA","2026",{i:"songpyeon_card"},"Instagram ads for a Hahoe Village class in Korean, English and Japanese"],
  ["Culture co-op website","Web · 6 languages","2026",{i:"munlink_site",href:"https://munlink.co.kr"},"Planned, designed, built and deployed by me, with a 6-language switch"],
   ["Gyeongbuk Attractions: Who Visits, When","Data viz · Tableau","2026",{i:"gb_tableau",pos:"0 50%",href:"https://public.tableau.com/app/profile/.35427649/viz/GyeongbukAttractionsWhoVisitsWhen/1"},"Interactive: Gyeongbuk attraction visitors, 2023 to H1 2026 · Sample · public data"],
@@ -445,8 +448,8 @@ const fmt=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Seoul",hour:"2-digit",
 const tick=()=>{$("#clock").textContent=fmt.format(new Date())};tick();setInterval(tick,1000);
 
 // Marquee
-const words=["Reels","Shorts","TikTok","YouTube episodes","Podcast clips","Captions","Motion text","AI video","AI voice-over","Product videos"];
-const one=words.map(w=>`${w}<i><svg class="ast"><use href="#ast"/></svg></i>`).join("");
+const CL=[["../i/ebs.png","EBS","","Educational video editing"],["../i/cl_mnet.png","Mnet Plus","","KiiiKiii stage video editing"],["../i/cl_youtube.svg","YouTube","YouTube","4 YouTube channels edited · fishing, camping, travel, mukbang"],["../i/cl_munlink.png","Munlink Cooperative","Munlink Cooperative","Promo videos · website",1],["../i/cl_pharm.png","Pharmacy","Pharmacist","Health-tip reels"]];
+const one=[...CL,...CL].map(([src,alt,nm,t,r])=>`<span class="cl">${src?`<img src="${src}" alt="${alt}"${r?' class="r"':""}>`:""}${nm?`<b>${nm}</b>`:""}<em>${t}</em></span>`).join("");
 $("#mq").innerHTML=`<span>${one}</span><span>${one}</span>`;
 
 // Video — kinds: real footage · AI video · motion graphics (#real, #ai, #motion in the URL shows only that kind)
